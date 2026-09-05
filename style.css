@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap');
 
 :root {
-    --ink: #17221d;
-    --muted: #607066;
-    --cream: #f4f1e8;
-    --paper: #fffdf7;
-    --green: #245c45;
-    --yellow: #e6b84d;
+    --ink: #173f66;
+    --muted: #4f7190;
+    --cream: #e6f1f9;
+    --paper: #f8fcff;
+    --blue: #2d7fc4;
+    --accent: #8ed8f0;
 }
 
 * {
@@ -17,6 +17,12 @@ html {
     scroll-behavior: smooth;
 }
 
+.logo img {
+    display: block;
+    height: 40px;
+    width: auto;
+}
+
 body {
     margin: 0;
     color: var(--ink);
@@ -25,16 +31,45 @@ body {
     line-height: 1.6;
 }
 
+@media (max-width: 560px) {
+    .site-header {
+        gap: 0.8rem;
+        padding: 0.7rem 1rem;
+    }
+
+    nav {
+        gap: 0.8rem;
+    }
+
+    nav a {
+        font-size: 0.8rem;
+    }
+}
+
 .site-header {
     align-items: center;
-    background: var(--paper);
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 999px;
+    box-shadow: 0 8px 28px rgba(16, 35, 63, 0.18);
+    position: fixed;
     display: flex;
-    justify-content: space-between;
-    padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
+    gap: 1.5rem;
+    justify-content: center;
+    left: 50%;
+    margin: 1rem auto;
+    max-width: calc(100% - 2rem);
+    padding: 0.6rem 2rem;
+    top: 1rem;
+    transform: translateX(-50%);
+    width: max-content;
+    z-index: 1000;
+    flex-direction: row;
 }
 
 .logo {
-    color: var(--green);
+    color: var(--blue);
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.35rem;
     font-weight: 700;
@@ -47,32 +82,37 @@ nav {
 }
 
 nav a {
-    color: var(--muted);
+    color: var(--paper);
     font-size: 0.95rem;
     text-decoration: none;
 }
 
 nav a:hover,
 nav a:focus {
-    color: var(--green);
+    color: var(--blue);
 }
 
 .hero {
     align-items: center;
-    background: linear-gradient(120deg, rgba(36, 92, 69, 0.95), rgba(25, 53, 43, 0.84)),
-        url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=85') center / cover;
+    background-image: linear-gradient(rgba(23, 63, 102, 0.45),
+            rgba(45, 127, 196, 0.34)),
+        url('logo-montelobos-v1.png');
+    background-position: -500% center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
     display: flex;
-    min-height: min(680px, 78vh);
-    padding: clamp(4rem, 10vw, 8rem) clamp(1.25rem, 8vw, 8rem);
+    min-height: 680px;
+    padding: 8rem;
 }
 
 .hero-content {
-    color: var(--paper);
+    color: #ffffff;
     max-width: 650px;
+    text-shadow: 0 2px 10px rgba(16, 52, 82, 0.55);
 }
 
 .eyebrow {
-    color: var(--yellow);
+    color: var(--accent);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -99,9 +139,12 @@ h1 {
 }
 
 .button {
-    background: var(--yellow);
-    border-radius: 4px;
-    color: var(--ink);
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(16, 35, 63, 0.18);
+    color: #ffffff;
     display: inline-block;
     font-weight: 700;
     padding: 0.85rem 1.3rem;
@@ -110,7 +153,8 @@ h1 {
 
 .button:hover,
 .button:focus {
-    background: var(--paper);
+    background: regba(255, 255, 255, 0.32);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .info-section {
@@ -122,7 +166,7 @@ h1 {
 }
 
 .info-section .eyebrow {
-    color: var(--green);
+    color: var(--blue);
 }
 
 h2 {
@@ -143,16 +187,4 @@ footer {
 
 footer p {
     margin: 0;
-}
-
-@media (max-width: 560px) {
-    .site-header {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    nav {
-        gap: 1rem;
-    }
 }
