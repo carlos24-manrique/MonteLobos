@@ -27,16 +27,21 @@
                 <p class="eyebrow">Comida · Socialización · Festejos</p>
                 <h1 id="titulo-principal">Una experiencia única de la grastronomía.</h1>
                 <p class="hero-text">
-                    Descubre MonteLobos, un espacio creado para conectar con la naturaleza,
-                    compartir experiencias y disfrutar cada camino.
+                    Descubre MonteLobos, un espacio creado para disfrutar en familia y amigos, donde la comida y los
+                    festejos se combinan para ofrecerte momentos inolvidables.
                 </p>
-                <a class="button" href="#nosotros">Conoce más</a>
+                <a class="button" href="#nosotros">Más información</a>
             </div>
         </section>
 
         <section class="info-section" id="nosotros" aria-labelledby="titulo-nosotros">
-            <p class="eyebrow">Nuestra esencia</p>
-            <h2 id="titulo-nosotros">Diseña aquí tu siguiente historia</h2>
+            <p class="eyebrow">Un poco más de nosotros</p>
+            <h2 id="titulo-nosotros">UBICANOS</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.4326657428373!2d-73.14246823146728!3d6.5539692875237145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e69c7cf4e8c6af9%3A0xbdc5ddc7e24c585c!2sMontelobos%20Gastro%20Bar%201989!5e0!3m2!1ses!2sco!4v1788649574093!5m2!1ses!2sco"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+            </iframe>
             <p>
                 Este contenedor puede incluir información, imágenes, servicios o cualquier
                 contenido que quieras mostrar a tus visitantes.
@@ -47,6 +52,24 @@
     <footer id="contacto">
         <p>&copy; 2026 MonteLobos</p>
     </footer>
+
+    <script>
+        const header = document.querySelector('.site-header');
+        const lightSection = document.querySelector('.info-section');
+
+        function updateHeaderColor() {
+            const headerBounds = header.getBoundingClientRect();
+            const sectionBounds = lightSection.getBoundingClientRect();
+            const isOverLightSection = sectionBounds.top <= headerBounds.bottom &&
+                sectionBounds.bottom >= headerBounds.top;
+
+            header.classList.toggle('is-dark', isOverLightSection);
+        }
+
+        window.addEventListener('scroll', updateHeaderColor, { passive: true });
+        window.addEventListener('resize', updateHeaderColor);
+        updateHeaderColor();
+    </script>
 </body>
 
 </html>

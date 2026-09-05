@@ -33,9 +33,9 @@ body {
 
 .site-header {
     align-items: center;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.42);
     border-radius: 999px;
     box-shadow: 0 8px 28px rgba(16, 35, 63, 0.18);
     position: fixed;
@@ -51,6 +51,13 @@ body {
     width: max-content;
     z-index: 1000;
     flex-direction: row;
+    transition: background-color 350ms ease, border-color 350ms ease, box-shadow 350ms ease;
+}
+
+.site-header.is-dark {
+    background: rgba(23, 63, 102, 0.62);
+    border-color: rgba(255, 255, 255, 0.42);
+    box-shadow: 0 8px 28px rgba(16, 35, 63, 0.18);
 }
 
 .logo {
@@ -67,9 +74,16 @@ nav {
 }
 
 nav a {
-    color: var(--paper);
+    color: var(--ink);
     font-size: 0.95rem;
+    text-shadow: 0 1px 4px rgba(16, 35, 63, 0.5);
     text-decoration: none;
+    transition: color 350ms ease, text-shadow 350ms ease;
+}
+
+.site-header.is-dark nav a {
+    color: #ffffff;
+    text-shadow: 0 1px 4px rgba(16, 35, 63, 0.5);
 }
 
 nav a:hover,
@@ -80,7 +94,8 @@ nav a:focus {
 .hero {
     align-items: center;
     background-image: linear-gradient(rgba(23, 63, 102, 0.45),
-            rgba(45, 127, 196, 0.34)),
+            rgba(45, 127, 196, 0.34) 72%,
+            var(--cream) 100%),
         url('logo-montelobos-v1.png');
     background-position: -500% center;
     background-repeat: no-repeat;
@@ -138,16 +153,17 @@ h1 {
 
 .button:hover,
 .button:focus {
-    background: regba(255, 255, 255, 0.32);
+    background: rgba(255, 255, 255, 0.32);
     border-color: rgba(255, 255, 255, 0.6);
 }
 
 .info-section {
-    background: var(--paper);
+    background: linear-gradient(to bottom, var(--cream), var(--paper) 120px);
     margin: 0 auto;
-    max-width: 900px;
+    max-width: none;
     padding: clamp(3rem, 8vw, 6rem) clamp(1.25rem, 6vw, 5rem);
     text-align: center;
+    width: 100%;
 }
 
 .info-section .eyebrow {
@@ -158,10 +174,18 @@ h2 {
     font-size: clamp(2rem, 5vw, 3.5rem);
 }
 
+.info-section iframe {
+    border: 0;
+    display: block;
+    height: 450px;
+    margin: 2rem auto 0;
+    width: 100%;
+}
+
 .info-section p:last-child {
     color: var(--muted);
-    margin: 1.25rem auto 0;
-    max-width: 600px;
+    margin: 1.5rem auto 0;
+    max-width: 650px;
 }
 
 footer {
