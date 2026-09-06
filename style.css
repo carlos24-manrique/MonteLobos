@@ -71,18 +71,19 @@ body {
 nav {
     display: flex;
     gap: 1.5rem;
+    font-size: 0.95rem;
+    text-shadow: 0 1px 4px rgba(16, 35, 63, 0.5);
+    transition: color 350ms ease, text-shadow 350ms ease;
 }
 
 nav a {
     color: var(--ink);
-    font-size: 0.95rem;
-    text-shadow: 0 1px 4px rgba(16, 35, 63, 0.5);
     text-decoration: none;
-    transition: color 350ms ease, text-shadow 350ms ease;
 }
 
 .site-header.is-dark nav a {
     color: #ffffff;
+    text-align: center;
     text-shadow: 0 1px 4px rgba(16, 35, 63, 0.5);
 }
 
@@ -188,14 +189,93 @@ h2 {
     max-width: 650px;
 }
 
+.menu {
+    align-items: center;
+    background: linear-gradient(to bottom, var(--paper) 0%, #173f66 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 6vw, 5rem) clamp(7rem, 14vw, 12rem);
+    text-align: center;
+}
+
+.menu-tar {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: min(100%, 760px);
+}
+
+.tarjeta {
+    flex: 1 1 280px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 20px;
+    box-shadow: 0 8px 28px rgba(16, 35, 63, 0.18);
+    text-align: center;
+    transition: background-color 350ms ease, transform 235ms ease;
+}
+
+.tarjeta:hover {
+    background: rgba(255, 255, 255, 0.50);
+    transform: translateY(-5px);
+}
+
+.tarjeta summary {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.menu-item {
+    align-items: center;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.menu-item-info {
+    flex: 1;
+}
+
+.menu-item h3,
+.menu-item p {
+    margin: 0;
+}
+
+.menu-item p {
+    font-size: 0.85rem;
+}
+
+.precio {
+    white-space: nowrap;
+}
+
 .carru {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .carru img {
     width: 100%;
+    padding: 12px;
     display: none;
+}
+
+.carru button {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(16, 35, 63, 0.18);
+    color: var(--ink);
+    padding: 0.7rem 1rem;
 }
 
 .carru img.active {
@@ -203,14 +283,37 @@ h2 {
 }
 
 footer {
+    background: linear-gradient(to bottom, #173f66, #0d2944);
     color: var(--muted);
-    padding: 1.5rem;
+    margin-top: 0;
+    padding: 4rem 1.5rem;
     text-align: center;
 }
 
 footer p {
+    color: #ffffff;
     margin: 0;
 }
+
+footer a {
+    color: var(--blue);
+    margin: 10px;
+    text-decoration: none;
+}
+
+/*.contacto {
+    margin-top: 80px;
+    padding: 6opx 20px;
+    background-color: #222;
+    color: var(--cream);
+    text-align: center;
+}
+
+.contacto a {
+    color: var(--paper);
+    margin: 10px;
+    text-decoration: none;
+}*/
 
 @media (max-width: 560px) {
     .hero {
@@ -247,14 +350,14 @@ footer p {
         object-fit: contain;
     }
 
-    nav {
+    .nav {
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.7rem;
         max-width: 100%;
     }
 
-    nav a {
+    .nav a {
         font-size: 0.8rem;
         white-space: nowrap;
     }
