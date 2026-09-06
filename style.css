@@ -188,6 +188,20 @@ h2 {
     max-width: 650px;
 }
 
+.carru {
+    position: relative;
+    overflow: hidden;
+}
+
+.carru img {
+    width: 100%;
+    display: none;
+}
+
+.carru img.active {
+    display: block;
+}
+
 footer {
     color: var(--muted);
     padding: 1.5rem;
