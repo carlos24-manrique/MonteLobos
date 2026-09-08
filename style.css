@@ -239,6 +239,10 @@ h2 {
     margin: 0.65rem 0 0;
 }
 
+.menu-list {
+    margin-top: 1rem;
+}
+
 .menu-item {
     align-items: center;
     display: flex;
@@ -246,6 +250,25 @@ h2 {
     justify-content: space-between;
     margin-top: 1rem;
     text-align: left;
+}
+
+.bebida-list .menu-item {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.bebida-list .menu-item-info {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.bebida-list .precio {
+    display: inline-block;
+    margin-top: 0;
+    white-space: nowrap;
 }
 
 .menu-item-info {
@@ -264,6 +287,23 @@ h2 {
 
 .menu-item p {
     font-size: 0.7rem;
+}
+
+.note-box {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 10px;
+    color: rgba(23, 63, 102, 0.82);
+    margin-top: 1rem;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+}
+
+.note-box p {
+    font-size: 0.68rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 0;
 }
 
 .precio {
