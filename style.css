@@ -239,16 +239,11 @@ h2 {
     margin: 0.65rem 0 0;
 }
 
-.menu-list {
-    margin-top: 1rem;
-}
-
 .menu-item {
     align-items: center;
     display: flex;
     gap: 1.5rem;
     justify-content: space-between;
-    margin-top: 1rem;
     text-align: left;
 }
 
