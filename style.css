@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap');
 
 :root {
-    --ink: #173f66;
-    --muted: #4f7190;
-    --cream: #e6f1f9;
-    --paper: #f8fcff;
-    --blue: #2d7fc4;
-    --accent: #8ed8f0;
+    --ink: #082f49;
+    --muted: #486581;
+    --cream: #dff3ff;
+    --paper: #f7fcff;
+    --blue: #0b6e99;
+    --accent: #f4b942;
 }
 
 * {
@@ -55,7 +55,7 @@ body {
 }
 
 .site-header.is-dark {
-    background: rgba(23, 63, 102, 0.62);
+    background: rgba(8, 47, 73, 0.82);
     border-color: rgba(255, 255, 255, 0.42);
     box-shadow: 0 8px 28px rgba(16, 35, 63, 0.18);
 }
@@ -94,8 +94,8 @@ nav a:focus {
 
 .hero {
     align-items: center;
-    background-image: linear-gradient(rgba(23, 63, 102, 0.45),
-            rgba(45, 127, 196, 0.34) 72%,
+    background-image: linear-gradient(rgba(8, 47, 73, 0.58),
+            rgba(11, 110, 153, 0.42) 72%,
             var(--cream) 100%),
         url('logo-montelobos-v1.png');
     background-position: -500% center;
@@ -191,7 +191,7 @@ h2 {
 
 .menu {
     align-items: center;
-    background: linear-gradient(to bottom, var(--paper) 0%, #173f66 100%);
+    background: linear-gradient(to bottom, var(--paper) 0%, #082f49 100%);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -229,6 +229,20 @@ h2 {
 .tarjeta summary {
     cursor: pointer;
     font-weight: bold;
+}
+
+.menu-subsection {
+    border-top: 1px solid rgba(8, 47, 73, 0.2);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    text-align: left;
+}
+
+.menu-subsection summary {
+    color: var(--ink);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.05rem;
+    padding: 0.25rem 0;
 }
 
 .menu-subtitle {
@@ -288,7 +302,7 @@ h2 {
     background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 10px;
-    color: rgba(23, 63, 102, 0.82);
+    color: rgba(8, 47, 73, 0.88);
     margin-top: 1rem;
     padding: 0.55rem 0.7rem;
     text-align: left;
@@ -333,7 +347,7 @@ h2 {
 }
 
 footer {
-    background: linear-gradient(to bottom, #173f66, #0d2944);
+    background: linear-gradient(to bottom, #082f49, #041e2e);
     color: var(--muted);
     margin-top: 0;
     padding: 4rem 1.5rem;
