@@ -1,576 +1,535 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MonteLobos</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-    <header class="site-header">
-        <a class="logo" href="index.html">
-            <img src="logo-montelobo-v2.png" alt="Logo de MonteLobos">
-        </a>
-        <nav aria-label="Navegación principal">
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#reserva">Reserva</a>
-        </nav>
-    </header>
-
-    <main id="inicio">
-        <section class="hero" data-header-theme="dark" aria-labelledby="titulo-principal">
-            <div class="hero-content">
-                <p class="eyebrow">Comida · Socialización · Festejos</p>
-                <h1 id="titulo-principal">Una experiencia única de la grastronomía.</h1>
-                <p class="hero-text">
-                    Descubre MonteLobos, un espacio creado para disfrutar en familia y amigos, donde la comida y los
-                    festejos se combinan para ofrecerte momentos inolvidables.
-                </p>
-                <a class="button" href="#nosotros">Más información</a>
-            </div>
-        </section>
-
-        <section class="info-section" data-header-theme="light" id="nosotros" aria-labelledby="titulo-nosotros">
-            <p class="eyebrow">Información General</p>
-            <h2 id="titulo-nosotros">UBICANOS</h2>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.4326657428373!2d-73.14246823146728!3d6.5539692875237145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e69c7cf4e8c6af9%3A0xbdc5ddc7e24c585c!2sMontelobos%20Gastro%20Bar%201989!5e0!3m2!1ses!2sco!4v1788649574093!5m2!1ses!2sco"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="strict-origin-when-cross-origin">
-            </iframe>
-            <p>
-                Derechos reservados a Google Maps. La ubicación mostrada es aproximada y puede no reflejar la ubicación
-                exacta del negocio.
+<main id="inicio">
+    <section class="hero" data-header-theme="dark" aria-labelledby="titulo-principal">
+        <div class="hero-content">
+            <img class="hero-logo" src="/images/logo-montelobo-v2.png" alt="MonteLobos Gastro Bar">
+            <p class="eyebrow">
+                <%= hero.eyebrow %>
             </p>
-            <div class="carru">
-                <img src="MonteLobos-In-1.jpeg" class="activa">
-                <img src="MonteLobos-In-2.jpeg">
-                <img src="MonteLobos-In-3.jpeg">
-                <img src="MonteLobos-In-4.jpeg">
-                <img src="MonteLobos-In-5.jpeg">
-                <img src="MonteLobos-In-6.jpeg">
-                <button class="anterior">
-                    < </button>
-                        <button class="siguiente"> > </button>
-            </div>
-        </section>
-        <section class="menu" data-header-theme="dark">
-            <h2>MENÚ</h2>
-            <div class="menu-tar">
-                <details class="tarjeta">
-                    <summary>Bebidas</summary>
-                    <details class="menu-subsection">
-                        <summary>Micheladas</summary>
-                        <div class="menu-list bebida-list">
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Michelada de la casa</h3>
-                                    <p>Zumo de limón, chamoy y tajín</p>
-                                </div>
-                                <strong class="precio">$4.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Michelada Lobo</h3>
-                                    <p>Jugo de limón, salsa especial y sal tajín</p>
-                                </div>
-                                <strong class="precio">$10.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Michelada Loba</h3>
-                                    <p>Cereza, concentrado de cereza, zumo de limón, chamoy y tajín</p>
-                                </div>
-                                <strong class="precio">$10.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Lobezno</h3>
-                                    <p>Mango, cereza, concentrado de cereza, limón, chamoy y tajín</p>
-                                </div>
-                                <strong class="precio">$14.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Lykos</h3>
-                                    <p>Maracuya, cereza, mango, concentrado de cereza, zumo de limón, chamoy y tajín</p>
-                                </div>
-                                <strong class="precio">$16.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Monte lobos beer</h3>
-                                    <p>Tequila, reducción de tamardindo y flor de jamaica, tabasco, zumo de limón,
-                                        chamoy y
-                                        tajín</p>
-                                </div>
-                                <strong class="precio">$22.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Margarita del monte</h3>
-                                    <p>Tequila, reducción de maracuya y cardamomo, concentrado de cereza, zumo de limón,
-                                        chamoy y tajín</p>
-                                </div>
-                                <strong class="precio">$22.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Soda de frutos de la montaña</h3>
-                                    <p>Reducción de maracuya, piña y uchuva</p>
-                                </div>
-                                <strong class="precio">$8.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Soda de frutos del bosque</h3>
-                                    <p>Reducción de arandanos, fresa y mora</p>
-                                </div>
-                                <strong class="precio">$8.000</strong>
-                            </div>
-                            <div class="note-box">
-                                <p>Nota: a todas las micheladas se les suma el valor de la bebida de tu preferencia.</p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="menu-subsection">
-                        <summary>Cocteles</summary>
-                        <div class="menu-list bebida-list">
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Adal-wolf</h3>
-                                    <p>Mezcal montelobos, campari, reduccion de maracuya y cardamomo, zumo de naranja y
-                                        zumo de limón</p>
-                                </div>
-                                <strong class="precio">$40.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Wolf</h3>
-                                    <p>Jack Daniels hony, ron blanco, miel de gengibre, especieas, zumo de naranja y
-                                        zumo de miel</p>
-                                </div>
-                                <strong class="precio">$35.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>1989</h3>
-                                    <p>Ginebra, vodka, arandanos y zumo de limón.</p>
-                                </div>
-                                <strong class="precio">$30.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Ulva</h3>
-                                    <p>Jager meister, licor de cereza y zumo de limón.</p>
-                                </div>
-                                <strong class="precio">$30.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Cocteles clasicos</h3>
-                                    <p>Gin tonic, mojito, margarita, daiquiri, cuba libre, piña colada, tequila sonrise,
-                                        sex on the beach, martini.</p>
-                                </div>
-                                <strong class="precio">$25.000</strong>
-                            </div>
-                            <div class="note-box">
-                                <p>Pregunta por la botella o copa de vino de tu preferencia</p>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="menu-subsection">
-                        <summary>Frappés</summary>
-                        <div class="menu-list bebida-list">
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Café y chantilly</h3>
-                                </div>
-                                <strong class="precio">$12.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Caramelo</h3>
-                                </div>
-                                <strong class="precio">$15.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Milo</h3>
-                                </div>
-                                <strong class="precio">$15.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Oreo</h3>
-                                </div>
-                                <strong class="precio">$15.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Brownie</h3>
-                                </div>
-                                <strong class="precio">$18.000</strong>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="menu-subsection">
-                        <summary>Cervezas</summary>
-                        <div class="menu-list bebida-list">
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Aguila</h3>
-                                </div>
-                                <strong class="precio">$5.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Poker</h3>
-                                </div>
-                                <strong class="precio">$5.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Aguila light</h3>
-                                </div>
-                                <strong class="precio">$5.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Coronita</h3>
-                                </div>
-                                <strong class="precio">$6.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Club Colombia</h3>
-                                </div>
-                                <strong class="precio">$6.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Heineken</h3>
-                                </div>
-                                <strong class="precio">$6.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>3 cordilleras</h3>
-                                </div>
-                                <strong class="precio">$10.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Stella artois</h3>
-                                </div>
-                                <strong class="precio">$10.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Smirnoff ice</h3>
-                                </div>
-                                <strong class="precio">$12.000</strong>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="menu-subsection">
-                        <summary>Tragos</summary>
-                        <div class="menu-list bebida-list">
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Aguardiente amarillo 750</h3>
-                                </div>
-                                <strong class="precio">$100.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Aguardiente amarillo 375</h3>
-                                </div>
-                                <strong class="precio">$60.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Aguardiente antioqueño 750</h3>
-                                </div>
-                                <strong class="precio">$100.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Aguardiente antioqueño 375</h3>
-                                </div>
-                                <strong class="precio">$60.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Ron viejo caldas 750</h3>
-                                </div>
-                                <strong class="precio">$110.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Ron viejo caldas 375</h3>
-                                </div>
-                                <strong class="precio">$65.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Ron V. de caldas 750 8 años</h3>
-                                </div>
-                                <strong class="precio">$150.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Buchanans deluxe 750</h3>
-                                </div>
-                                <strong class="precio">$230.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Buchanans deluxe 375</h3>
-                                </div>
-                                <strong class="precio">$150.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Buchanans Master</h3>
-                                </div>
-                                <strong class="precio">$270.000</strong>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="menu-subsection">
-                        <summary>Otros</summary>
-                        <div class="menu-list bebida-list">
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Bretaña</h3>
-                                </div>
-                                <strong class="precio">$5.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Canada dry</h3>
-                                </div>
-                                <strong class="precio">$5.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Coca cola pet 400</h3>
-                                </div>
-                                <strong class="precio">$5.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Soda hatsu</h3>
-                                </div>
-                                <strong class="precio">$7.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Gatorade</h3>
-                                </div>
-                                <strong class="precio">$6.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Electrolit</h3>
-                                </div>
-                                <strong class="precio">$14.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Quates</h3>
-                                </div>
-                                <strong class="precio">$6.000</strong>
-                            </div>
-                            <div class="menu-item bebida-item">
-                                <div class="menu-item-info">
-                                    <h3>Coca cola 1.5</h3>
-                                </div>
-                                <strong class="precio">$12.000</strong>
-                            </div>
-                        </div>
-                    </details>
-                </details>
-
-                <details class="tarjeta">
-                    <summary>Comidas</summary>
-                    <details class="menu-subsection">
-                        <summary>Entradas</summary>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Flautas de la casa</h3>
-                                    <p>(Cada una) </p>
-                                </div>
-                                <strong class="precio">$4.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3><br>Porcion de papas a la francesa.</h3>
-                                </div>
-                                <strong class="precio"><br>$9.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3><br>Empanaditas x6 unidades.</h3>
-                                </div>
-                                <strong class="precio"><br>$12.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3> Deditos de queso X6 unidades.</h3>
-                                </div>
-                                <strong class="precio"><br>$12.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Porcion de papas con queso.</h3>
-                                </div>
-                                <strong class="precio">$15.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Chorizo montelobos.</h3>
-                                    <p>(Chorizos acaramelados en salsa de Jack Daniels acompañados de croquetas de yuca)
-                                    </p>
-                                </div>
-                                <strong class="precio">$15.000</strong>
-                            </div>
-                        </div>
-                    </details>
-
-                    <details class="menu-subsection">
-                        <summary>Comidas de la casa</summary>
-                        <div class="menu-items">
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Hamburguesa MonteLobos</h3>
-                                    <p>Carne artesanal, queso, lechuga, tomate y salsa de la casa, servida con papas
-                                        fritas.</p>
-                                </div>
-                                <strong class="precio">$30.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Sandwinch de pollo</h3>
-                                    <p>Pechuga desmechada en salsa tartara, queso, jamón ahumado,mermelada de tocineta,
-                                        vegetales y papa a la francesa.</p>
-                                </div>
-                                <strong class="precio">$25.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Sandwinch de costilla de cerdo </h3>
-                                    <p>Costillas de cerdo desmechada en salsa de la casa, queso, jamón ahumado,
-                                        mermelada de tocineta, pepinillos, vegetales y papa a la francesa.
-                                </div>
-                                <strong class="precio">$28.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Papas de la casa</h3>
-                                    <p>Papas a la francesa, pollo desmechado en salsa tartara, queso fundido y mermelada
-                                        de tocineta. </p>
-                                </div>
-                                <strong class="precio">$25.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Alitas bocadillo</h3>
-                                    <p>10 piezas de alitas en reduccción de cerveza y bocadillo acompañadas de papas a
-                                        la francesa. (picantes) </p>
-                                </div>
-                                <strong class="precio">$30.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3> Costillas de cerdo</h3>
-                                    <p>Costillas de cerdo en salsa barbacoa acompañadas de papa a la francesa. </p>
-                                </div>
-                                <strong class="precio">$35.000</strong>
-                            </div>
-                            <div class="menu-item">
-                                <div class="menu-item-info">
-                                    <h3>Picadilla montelobos</h3>
-                                    <p>Panceta de cerdo en trozos, chorizo, longaniza, papas a la francesa, croquetas de
-                                        yuca. (Para 2 personas) </p>
-                                </div>
-                                <strong class="precio">$45.000</strong>
-                            </div>
-                        </div>
-                    </details>
-                </details>
-            </div>
-        </section>
-    </main>
-
-    <section class="reservation" data-header-theme="light" id="reserva" aria-labelledby="titulo-reserva">
-        <div class="reservation-intro">
-            <p class="eyebrow">Reserva tu mesa</p>
-            <h2 id="titulo-reserva">Vive la experiencia MonteLobos</h2>
-            <p>Déjanos tus datos y nos pondremos en contacto contigo para confirmar tu reserva.</p>
+            <h1 id="titulo-principal">
+                <%= hero.title %>
+            </h1>
+            <p class="hero-text">
+                <%= hero.description %>
+            </p>
+            <a class="button" href="#nosotros">Más información</a>
         </div>
-        <form class="reservation-form" action="#contacto" method="post">
-            <div class="form-field">
-                <label for="nombre">Nombre</label>
-                <input type="text" id="nombre" name="nombre" autocomplete="given-name" required>
-            </div>
-            <div class="form-field">
-                <label for="apellido">Apellido</label>
-                <input type="text" id="apellido" name="apellido" autocomplete="family-name" required>
-            </div>
-            <div class="form-field">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" required>
-            </div>
-            <div class="form-field">
-                <label for="correo">Correo electrónico</label>
-                <input type="email" id="correo" name="correo" autocomplete="email" required>
-            </div>
-            <button class="reservation-submit" type="submit">Solicitar reserva</button>
-        </form>
     </section>
 
-    <footer data-header-theme="dark" id="contacto">
-        <h2>Más información</h2>
-        <p><br>Encuéntranos en redes sociales o contáctanos directamente.</p>
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="tel:+000000000">Llamar</a>
-        <a href="mailto:correo@ejemplo.com">Enviar correo</a>
-        <p><br>&copy; 1989 - 2026 MonteLobos</p>
-    </footer>
+    <section class="info-section" data-header-theme="light" id="nosotros" aria-labelledby="titulo-nosotros">
+        <p class="eyebrow">Información General</p>
+        <h2 id="titulo-nosotros">UBICANOS</h2>
+        <div class="info-gallery">
+            <div class="location-panel">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.4326657428373!2d-73.14246823146728!3d6.5539692875237145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e69c7cf4e8c6af9%3A0xbdc5ddc7e24c585c!2sMontelobos%20Gastro%20Bar%201989!5e0!3m2!1ses!2sco!4v1788649574093!5m2!1ses!2sco"
+                    width="600" height="450" allowfullscreen="" loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+                <p>
+                    Derechos reservados a Google Maps. La ubicación mostrada es aproximada y puede no reflejar la
+                    ubicación
+                    exacta del negocio.
+                </p>
+            </div>
+            <div class="carru">
+                <div class="carru-track">
+                    <img src="/images/MonteLobos-In-1.jpeg" class="active" alt="Interior de MonteLobos">
+                    <img src="/images/MonteLobos-In-2.jpeg" alt="Ambiente de MonteLobos">
+                    <img src="/images/MonteLobos-In-3.jpeg" alt="Espacio de MonteLobos">
+                    <img src="/images/MonteLobos-In-4.jpeg" alt="Experiencia MonteLobos">
+                    <img src="/images/MonteLobos-In-5.jpeg" alt="Detalle de MonteLobos">
+                    <img src="/images/MonteLobos-In-6.jpeg" alt="Vista de MonteLobos">
+                </div>
+                <button class="anterior" type="button" aria-label="Foto anterior">&lt;</button>
+                <button class="siguiente" type="button" aria-label="Foto siguiente">&gt;</button>
+            </div>
+        </div>
+    </section>
+    <section class="menu" data-header-theme="dark">
+        <h2>MENÚ</h2>
+        <div class="menu-tar">
+            <details class="tarjeta">
+                <summary>Bebidas</summary>
+                <details class="menu-subsection">
+                    <summary>Micheladas</summary>
+                    <div class="menu-list bebida-list">
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Michelada de la casa</h3>
+                                <p>Zumo de limón, chamoy y tajín</p>
+                            </div>
+                            <strong class="precio">$4.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Michelada Lobo</h3>
+                                <p>Jugo de limón, salsa especial y sal tajín</p>
+                            </div>
+                            <strong class="precio">$10.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Michelada Loba</h3>
+                                <p>Cereza, concentrado de cereza, zumo de limón, chamoy y tajín</p>
+                            </div>
+                            <strong class="precio">$10.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Lobezno</h3>
+                                <p>Mango, cereza, concentrado de cereza, limón, chamoy y tajín</p>
+                            </div>
+                            <strong class="precio">$14.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Lykos</h3>
+                                <p>Maracuya, cereza, mango, concentrado de cereza, zumo de limón, chamoy y tajín</p>
+                            </div>
+                            <strong class="precio">$16.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Monte lobos beer</h3>
+                                <p>Tequila, reducción de tamardindo y flor de jamaica, tabasco, zumo de limón,
+                                    chamoy y
+                                    tajín</p>
+                            </div>
+                            <strong class="precio">$22.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Margarita del monte</h3>
+                                <p>Tequila, reducción de maracuya y cardamomo, concentrado de cereza, zumo de limón,
+                                    chamoy y tajín</p>
+                            </div>
+                            <strong class="precio">$22.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Soda de frutos de la montaña</h3>
+                                <p>Reducción de maracuya, piña y uchuva</p>
+                            </div>
+                            <strong class="precio">$8.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Soda de frutos del bosque</h3>
+                                <p>Reducción de arandanos, fresa y mora</p>
+                            </div>
+                            <strong class="precio">$8.000</strong>
+                        </div>
+                        <div class="note-box">
+                            <p>Nota: a todas las micheladas se les suma el valor de la bebida de tu preferencia.</p>
+                        </div>
+                    </div>
+                </details>
 
-    <script>
-        const header = document.querySelector('.site-header');
-        const themedSections = document.querySelectorAll('[data-header-theme]');
+                <details class="menu-subsection">
+                    <summary>Cocteles</summary>
+                    <div class="menu-list bebida-list">
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Adal-wolf</h3>
+                                <p>Mezcal montelobos, campari, reduccion de maracuya y cardamomo, zumo de naranja y
+                                    zumo de limón</p>
+                            </div>
+                            <strong class="precio">$40.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Wolf</h3>
+                                <p>Jack Daniels hony, ron blanco, miel de gengibre, especieas, zumo de naranja y
+                                    zumo de miel</p>
+                            </div>
+                            <strong class="precio">$35.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>1989</h3>
+                                <p>Ginebra, vodka, arandanos y zumo de limón.</p>
+                            </div>
+                            <strong class="precio">$30.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Ulva</h3>
+                                <p>Jager meister, licor de cereza y zumo de limón.</p>
+                            </div>
+                            <strong class="precio">$30.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Cocteles clasicos</h3>
+                                <p>Gin tonic, mojito, margarita, daiquiri, cuba libre, piña colada, tequila sonrise,
+                                    sex on the beach, martini.</p>
+                            </div>
+                            <strong class="precio">$25.000</strong>
+                        </div>
+                        <div class="note-box">
+                            <p>Pregunta por la botella o copa de vino de tu preferencia</p>
+                        </div>
+                    </div>
+                </details>
 
-        function updateHeaderColor() {
-            const headerBounds = header.getBoundingClientRect();
-            const headerCenter = headerBounds.top + headerBounds.height / 2;
-            const activeSection = Array.from(themedSections).find((section) => {
-                const sectionBounds = section.getBoundingClientRect();
-                return sectionBounds.top <= headerCenter && sectionBounds.bottom >= headerCenter;
-            });
-            const isOverDarkSection = activeSection?.dataset.headerTheme === 'dark';
+                <details class="menu-subsection">
+                    <summary>Frappés</summary>
+                    <div class="menu-list bebida-list">
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Café y chantilly</h3>
+                            </div>
+                            <strong class="precio">$12.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Caramelo</h3>
+                            </div>
+                            <strong class="precio">$15.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Milo</h3>
+                            </div>
+                            <strong class="precio">$15.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Oreo</h3>
+                            </div>
+                            <strong class="precio">$15.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Brownie</h3>
+                            </div>
+                            <strong class="precio">$18.000</strong>
+                        </div>
+                    </div>
+                </details>
 
-            header.classList.toggle('is-dark', isOverDarkSection);
-        }
+                <details class="menu-subsection">
+                    <summary>Cervezas</summary>
+                    <div class="menu-list bebida-list">
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Aguila</h3>
+                            </div>
+                            <strong class="precio">$5.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Poker</h3>
+                            </div>
+                            <strong class="precio">$5.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Aguila light</h3>
+                            </div>
+                            <strong class="precio">$5.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Coronita</h3>
+                            </div>
+                            <strong class="precio">$6.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Club Colombia</h3>
+                            </div>
+                            <strong class="precio">$6.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Heineken</h3>
+                            </div>
+                            <strong class="precio">$6.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>3 cordilleras</h3>
+                            </div>
+                            <strong class="precio">$10.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Stella artois</h3>
+                            </div>
+                            <strong class="precio">$10.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Smirnoff ice</h3>
+                            </div>
+                            <strong class="precio">$12.000</strong>
+                        </div>
+                    </div>
+                </details>
 
-        window.addEventListener('scroll', updateHeaderColor, { passive: true });
-        window.addEventListener('resize', updateHeaderColor);
-        updateHeaderColor();
-    </script>
-</body>
+                <details class="menu-subsection">
+                    <summary>Tragos</summary>
+                    <div class="menu-list bebida-list">
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Aguardiente amarillo 750</h3>
+                            </div>
+                            <strong class="precio">$100.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Aguardiente amarillo 375</h3>
+                            </div>
+                            <strong class="precio">$60.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Aguardiente antioqueño 750</h3>
+                            </div>
+                            <strong class="precio">$100.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Aguardiente antioqueño 375</h3>
+                            </div>
+                            <strong class="precio">$60.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Ron viejo caldas 750</h3>
+                            </div>
+                            <strong class="precio">$110.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Ron viejo caldas 375</h3>
+                            </div>
+                            <strong class="precio">$65.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Ron V. de caldas 750 8 años</h3>
+                            </div>
+                            <strong class="precio">$150.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Buchanans deluxe 750</h3>
+                            </div>
+                            <strong class="precio">$230.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Buchanans deluxe 375</h3>
+                            </div>
+                            <strong class="precio">$150.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Buchanans Master</h3>
+                            </div>
+                            <strong class="precio">$270.000</strong>
+                        </div>
+                    </div>
+                </details>
 
-</html>
+                <details class="menu-subsection">
+                    <summary>Otros</summary>
+                    <div class="menu-list bebida-list">
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Bretaña</h3>
+                            </div>
+                            <strong class="precio">$5.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Canada dry</h3>
+                            </div>
+                            <strong class="precio">$5.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Coca cola pet 400</h3>
+                            </div>
+                            <strong class="precio">$5.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Soda hatsu</h3>
+                            </div>
+                            <strong class="precio">$7.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Gatorade</h3>
+                            </div>
+                            <strong class="precio">$6.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Electrolit</h3>
+                            </div>
+                            <strong class="precio">$14.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Quates</h3>
+                            </div>
+                            <strong class="precio">$6.000</strong>
+                        </div>
+                        <div class="menu-item bebida-item">
+                            <div class="menu-item-info">
+                                <h3>Coca cola 1.5</h3>
+                            </div>
+                            <strong class="precio">$12.000</strong>
+                        </div>
+                    </div>
+                </details>
+            </details>
+
+            <details class="tarjeta">
+                <summary>Comidas</summary>
+                <details class="menu-subsection">
+                    <summary>Entradas</summary>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Flautas de la casa</h3>
+                                <p>(Cada una) </p>
+                            </div>
+                            <strong class="precio">$4.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3><br>Porcion de papas a la francesa.</h3>
+                            </div>
+                            <strong class="precio"><br>$9.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3><br>Empanaditas x6 unidades.</h3>
+                            </div>
+                            <strong class="precio"><br>$12.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3> Deditos de queso X6 unidades.</h3>
+                            </div>
+                            <strong class="precio"><br>$12.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Porcion de papas con queso.</h3>
+                            </div>
+                            <strong class="precio">$15.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Chorizo montelobos.</h3>
+                                <p>(Chorizos acaramelados en salsa de Jack Daniels acompañados de croquetas de yuca)
+                                </p>
+                            </div>
+                            <strong class="precio">$15.000</strong>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="menu-subsection">
+                    <summary>Comidas de la casa</summary>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Hamburguesa MonteLobos</h3>
+                                <p>Carne artesanal, queso, lechuga, tomate y salsa de la casa, servida con papas
+                                    fritas.</p>
+                            </div>
+                            <strong class="precio">$30.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Sandwinch de pollo</h3>
+                                <p>Pechuga desmechada en salsa tartara, queso, jamón ahumado,mermelada de tocineta,
+                                    vegetales y papa a la francesa.</p>
+                            </div>
+                            <strong class="precio">$25.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Sandwinch de costilla de cerdo </h3>
+                                <p>Costillas de cerdo desmechada en salsa de la casa, queso, jamón ahumado,
+                                    mermelada de tocineta, pepinillos, vegetales y papa a la francesa.
+                            </div>
+                            <strong class="precio">$28.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Papas de la casa</h3>
+                                <p>Papas a la francesa, pollo desmechado en salsa tartara, queso fundido y mermelada
+                                    de tocineta. </p>
+                            </div>
+                            <strong class="precio">$25.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Alitas bocadillo</h3>
+                                <p>10 piezas de alitas en reduccción de cerveza y bocadillo acompañadas de papas a
+                                    la francesa. (picantes) </p>
+                            </div>
+                            <strong class="precio">$30.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3> Costillas de cerdo</h3>
+                                <p>Costillas de cerdo en salsa barbacoa acompañadas de papa a la francesa. </p>
+                            </div>
+                            <strong class="precio">$35.000</strong>
+                        </div>
+                        <div class="menu-item">
+                            <div class="menu-item-info">
+                                <h3>Picadilla montelobos</h3>
+                                <p>Panceta de cerdo en trozos, chorizo, longaniza, papas a la francesa, croquetas de
+                                    yuca. (Para 2 personas) </p>
+                            </div>
+                            <strong class="precio">$45.000</strong>
+                        </div>
+                    </div>
+                </details>
+            </details>
+        </div>
+    </section>
+</main>
+
+<section class="reservation" data-header-theme="light" id="reserva" aria-labelledby="titulo-reserva">
+    <div class="reservation-intro">
+        <p class="eyebrow">
+            <%= reservation.eyebrow %>
+        </p>
+        <h2 id="titulo-reserva">
+            <%= reservation.title %>
+        </h2>
+        <p>
+            <%= reservation.description %>
+        </p>
+    </div>
+    <form class="reservation-form" action="#contacto" method="post">
+        <div class="form-field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="given-name" required>
+        </div>
+        <div class="form-field">
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" name="apellido" autocomplete="family-name" required>
+        </div>
+        <div class="form-field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="form-field">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email" required>
+        </div>
+        <button class="reservation-submit" type="submit">Solicitar reserva</button>
+    </form>
+</section>

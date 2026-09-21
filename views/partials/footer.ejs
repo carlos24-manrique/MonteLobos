@@ -1,0 +1,52 @@
+<footer data-header-theme="dark" id="contacto">
+    <h2>Más información</h2>
+    <p><br>Encuéntranos en redes sociales o contáctanos directamente.</p>
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="tel:+000000000">Llamar</a>
+    <a href="mailto:correo@ejemplo.com">Enviar correo</a>
+    <p><br>&copy; 1989 - 2026 MonteLobos</p>
+</footer>
+
+<script>
+    const header = document.querySelector('.site-header');
+    const themedSections = document.querySelectorAll('[data-header-theme]');
+    let scrollStopTimer;
+
+    function expandHeader() {
+        window.clearTimeout(scrollStopTimer);
+        header.classList.remove('is-compact');
+    }
+
+    function compactHeaderWhileScrolling() {
+        header.classList.add('is-compact');
+        window.clearTimeout(scrollStopTimer);
+        scrollStopTimer = window.setTimeout(expandHeader, 450);
+    }
+
+    function updateHeaderColor() {
+        const headerBounds = header.getBoundingClientRect();
+        const headerCenter = headerBounds.top + headerBounds.height / 2;
+        const activeSection = Array.from(themedSections).find((section) => {
+            const sectionBounds = section.getBoundingClientRect();
+            return sectionBounds.top <= headerCenter && sectionBounds.bottom >= headerCenter;
+        });
+
+        header.classList.toggle('is-dark', activeSection?.dataset.headerTheme === 'dark');
+    }
+
+    window.addEventListener('scroll', () => {
+        updateHeaderColor();
+        compactHeaderWhileScrolling();
+    }, { passive: true });
+    window.addEventListener('scrollend', expandHeader);
+    window.addEventListener('resize', updateHeaderColor);
+    header.addEventListener('pointerenter', expandHeader);
+    header.addEventListener('pointerdown', expandHeader);
+    header.addEventListener('focusin', expandHeader);
+    updateHeaderColor();
+</script>
+<script src="/js/carousel.js" defer></script>
+</body>
+
+</html>

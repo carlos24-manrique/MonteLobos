@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="logo" href="/">
+            <img src="/images/logo-montelobo-v2.png" alt="Logo de MonteLobos">
+        </a>
+        <nav aria-label="Navegación principal">
+            <% navigation.forEach((item)=> { %>
+                <a href="<%= item.href %>">
+                    <%= item.label %>
+                </a>
+                <% }); %>
+        </nav>
+    </header>
