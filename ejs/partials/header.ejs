@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+        background: #f4f7fb;
+        color: #172033;
+      }
+
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #f4f7fb; }
+      header { padding: 1.5rem max(1.5rem, calc((100% - 900px) / 2)); background: #172033; }
+      nav { display: flex; gap: 1rem; align-items: center; justify-content: space-between; }
+      nav a { color: #fff; text-decoration: none; }
+      nav a + a { margin-left: 1rem; }
+      main { width: min(90%, 900px); margin: 2rem auto; }
+      section, form { padding: 2rem; border: 1px solid #d8e0ec; border-radius: 12px; background: #fff; box-shadow: 0 12px 30px rgb(23 32 51 / 8%); }
+      h1 { margin-top: 0; color: #155eef; }
+      label { display: block; margin-top: 1rem; font-weight: 600; }
+      input { width: 100%; margin-top: 0.4rem; padding: 0.7rem; border: 1px solid #b9c5d8; border-radius: 6px; font: inherit; }
+      button { margin-top: 1.5rem; padding: 0.7rem 1rem; border: 0; border-radius: 6px; background: #155eef; color: #fff; cursor: pointer; font: inherit; }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { padding: 0.75rem; border-bottom: 1px solid #e1e7f0; text-align: left; }
+      footer { padding: 2rem; color: #596579; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Inicio</a>
+        <span>
+          <a href="/users/register">Registrar usuario</a>
+          <a href="/api/status">Estado de API</a>
+        </span>
+      </nav>
+    </header>
+    <main>

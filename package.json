@@ -5,11 +5,15 @@
     "description": "Sitio web de MonteLobos",
     "type": "module",
     "scripts": {
-        "dev": "node server.js",
+        "dev": "nodemon server.js",
         "start": "node server.js"
     },
     "dependencies": {
         "ejs": "^3.1.10",
-        "express": "^5.1.0"
+        "express": "^5.1.0",
+        "express-session": "^1.19.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
     }
 }

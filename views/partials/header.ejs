@@ -19,4 +19,53 @@
                 </a>
                 <% }); %>
         </nav>
+        <div class="header-actions">
+            <button class="header-action cart-trigger" type="button" aria-haspopup="dialog" aria-controls="cart-dialog">
+                <span>Carrito</span>
+                <span class="cart-count" aria-live="polite">0</span>
+            </button>
+            <button class="header-action auth-trigger" type="button" aria-haspopup="dialog" aria-controls="auth-dialog">
+                <span class="auth-trigger-label">Iniciar sesión</span>
+            </button>
+        </div>
     </header>
+    <dialog class="site-dialog cart-dialog" id="cart-dialog" aria-labelledby="cart-title">
+        <div class="dialog-heading">
+            <h2 id="cart-title">Tu carrito</h2>
+            <button class="dialog-close" type="button" aria-label="Cerrar carrito">&times;</button>
+        </div>
+        <div class="cart-items"></div>
+        <p class="cart-empty">Aún no agregas productos.</p>
+        <div class="cart-total-row">
+            <span>Total</span>
+            <strong class="cart-total">$0</strong>
+        </div>
+        <button class="cart-checkout" type="button" disabled>Continuar por WhatsApp</button>
+    </dialog>
+    <dialog class="site-dialog auth-dialog" id="auth-dialog" aria-labelledby="auth-title">
+        <div class="dialog-heading">
+            <h2 id="auth-title">Iniciar sesión</h2>
+            <button class="dialog-close auth-close" type="button" aria-label="Cerrar inicio de sesión">&times;</button>
+        </div>
+        <p class="auth-feedback" role="status" aria-live="polite" hidden></p>
+        <form class="auth-form">
+            <label class="auth-name-field" for="auth-name" hidden>
+                Nombre
+                <input id="auth-name" name="name" type="text" autocomplete="name" maxlength="80" disabled>
+            </label>
+            <label for="auth-email">
+                Correo electrónico
+                <input id="auth-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+            </label>
+            <label for="auth-password">
+                Contraseña
+                <input id="auth-password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required>
+            </label>
+            <button class="auth-submit" type="submit">Iniciar sesión</button>
+        </form>
+        <button class="auth-switch" type="button">Crear cuenta</button>
+        <div class="auth-account" hidden>
+            <p class="auth-welcome"></p>
+            <button class="auth-logout" type="button">Cerrar sesión</button>
+        </div>
+    </dialog>

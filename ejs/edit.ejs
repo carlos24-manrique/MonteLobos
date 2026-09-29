@@ -1,0 +1,12 @@
+<%- include('partials/header', { title }) %>
+<form action="/users/edit/<%= user.id %>" method="post">
+  <h1><%= title %></h1>
+  <label for="name">Nombre</label>
+  <input id="name" name="name" value="<%= user.name %>" required />
+  <label for="apellido">Apellido</label>
+  <input id="apellido" name="apellido" value="<%= user.apellido %>" required />
+  <label for="edad">Edad</label>
+  <input id="edad" name="edad" type="number" min="0" value="<%= user.edad %>" required />
+  <button type="submit">Guardar cambios</button>
+</form>
+<%- include('partials/footer') %>
