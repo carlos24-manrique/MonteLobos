@@ -66,6 +66,20 @@
         <button class="auth-switch" type="button">Crear cuenta</button>
         <div class="auth-account" hidden>
             <p class="auth-welcome"></p>
+            <a class="auth-admin-link" href="/admin" hidden>Panel de administración</a>
+            <div class="auth-orders">
+                <h3>Mis pedidos</h3>
+                <div class="auth-purchases-summary">
+                    <div><strong class="auth-invoice-count">0</strong><span>Facturas</span></div>
+                    <div><strong class="auth-spent-total">$0</strong><span>Total gastado</span></div>
+                </div>
+                <div class="auth-saved-cart">
+                    <p>Carrito pendiente: <strong class="auth-saved-cart-count">0 productos</strong></p>
+                    <button class="auth-open-cart" type="button">Continuar compra</button>
+                </div>
+                <p class="auth-orders-empty">Aún no tienes pedidos guardados.</p>
+                <ul class="auth-orders-list"></ul>
+            </div>
             <button class="auth-logout" type="button">Cerrar sesión</button>
         </div>
     </dialog>

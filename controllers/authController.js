@@ -1,29 +1,12 @@
 import { randomBytes, scrypt, timingSafeEqual } from 'node:crypto';
 import { promisify } from 'node:util';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { requireSupabase } from '../lib/supabase.js';
 
 const scryptAsync = promisify(scrypt);
-const accountsFile = join(dirname(fileURLToPath(import.meta.url)), '../data/accounts.json');
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-async function readAccounts() {
-    try {
-        return JSON.parse(await readFile(accountsFile, 'utf8'));
-    } catch (error) {
-        if (error.code === 'ENOENT') return [];
-        throw error;
-    }
-}
-
-async function writeAccounts(accounts) {
-    await mkdir(dirname(accountsFile), { recursive: true });
-    await writeFile(accountsFile, `${JSON.stringify(accounts, null, 2)}\n`, 'utf8');
-}
-
 function publicAccount(account) {
-    return { id: account.id, name: account.name, email: account.email };
+    return { id: account.id, name: account.name, email: account.email, role: account.role || 'customer' };
 }
 
 async function startSession(req, account) {
@@ -47,8 +30,14 @@ export async function register(req, res) {
         return res.status(400).json({ message: 'Revisa tu nombre, correo y contraseña (mínimo 8 caracteres).' });
     }
 
-    const accounts = await readAccounts();
-    if (accounts.some((account) => account.email === email)) {
+    const db = requireSupabase();
+    const { data: existing, error: lookupError } = await db
+        .from('users')
+        .select('id')
+        .eq('email', email)
+        .maybeSingle();
+    if (lookupError) throw lookupError;
+    if (existing) {
         return res.status(409).json({ message: 'Ya existe una cuenta con ese correo.' });
     }
 
@@ -62,8 +51,14 @@ export async function register(req, res) {
         passwordHash
     };
 
-    accounts.push(account);
-    await writeAccounts(accounts);
+    const { error } = await db.from('users').insert({
+        id: account.id,
+        name: account.name,
+        email: account.email,
+        salt: account.salt,
+        password_hash: account.passwordHash
+    });
+    if (error) throw error;
     await startSession(req, account);
     return res.status(201).json({ user: publicAccount(account) });
 }
@@ -71,7 +66,17 @@ export async function register(req, res) {
 export async function login(req, res) {
     const email = typeof req.body?.email === 'string' ? req.body.email.trim().toLowerCase() : '';
     const password = typeof req.body?.password === 'string' ? req.body.password : '';
-    const account = (await readAccounts()).find((candidate) => candidate.email === email);
+    const db = requireSupabase();
+    const { data: savedAccount, error } = await db
+        .from('users')
+        .select('id, name, email, salt, password_hash, role')
+        .eq('email', email)
+        .maybeSingle();
+    if (error) throw error;
+    const account = savedAccount && {
+        ...savedAccount,
+        passwordHash: savedAccount.password_hash
+    };
 
     if (!account || !password || password.length > 128) {
         return res.status(401).json({ message: 'Correo o contraseña incorrectos.' });

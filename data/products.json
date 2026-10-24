@@ -1,0 +1,474 @@
+[
+  {
+    "id": "michelada-de-la-casa",
+    "name": "Michelada de la casa",
+    "description": "Zumo de limón, chamoy y tajín",
+    "category": "Micheladas",
+    "price": 4000,
+    "available": true
+  },
+  {
+    "id": "michelada-lobo",
+    "name": "Michelada Lobo",
+    "description": "Jugo de limón, salsa especial y sal tajín",
+    "category": "Micheladas",
+    "price": 10000,
+    "available": true
+  },
+  {
+    "id": "michelada-loba",
+    "name": "Michelada Loba",
+    "description": "Cereza, concentrado de cereza, zumo de limón, chamoy y tajín",
+    "category": "Micheladas",
+    "price": 10000,
+    "available": true
+  },
+  {
+    "id": "lobezno",
+    "name": "Lobezno",
+    "description": "Mango, cereza, concentrado de cereza, limón, chamoy y tajín",
+    "category": "Micheladas",
+    "price": 14000,
+    "available": true
+  },
+  {
+    "id": "lykos",
+    "name": "Lykos",
+    "description": "Maracuya, cereza, mango, concentrado de cereza, zumo de limón, chamoy y tajín",
+    "category": "Micheladas",
+    "price": 16000,
+    "available": true
+  },
+  {
+    "id": "monte-lobos-beer",
+    "name": "Monte lobos beer",
+    "description": "Tequila, reducción de tamardindo y flor de jamaica, tabasco, zumo de limón, chamoy y tajín",
+    "category": "Micheladas",
+    "price": 22000,
+    "available": true
+  },
+  {
+    "id": "margarita-del-monte",
+    "name": "Margarita del monte",
+    "description": "Tequila, reducción de maracuya y cardamomo, concentrado de cereza, zumo de limón, chamoy y tajín",
+    "category": "Micheladas",
+    "price": 22000,
+    "available": true
+  },
+  {
+    "id": "soda-de-frutos-de-la-montana",
+    "name": "Soda de frutos de la montaña",
+    "description": "Reducción de maracuya, piña y uchuva",
+    "category": "Micheladas",
+    "price": 8000,
+    "available": true
+  },
+  {
+    "id": "soda-de-frutos-del-bosque",
+    "name": "Soda de frutos del bosque",
+    "description": "Reducción de arandanos, fresa y mora",
+    "category": "Micheladas",
+    "price": 8000,
+    "available": true
+  },
+  {
+    "id": "adal-wolf",
+    "name": "Adal-wolf",
+    "description": "Mezcal montelobos, campari, reduccion de maracuya y cardamomo, zumo de naranja y zumo de limón",
+    "category": "Cocteles",
+    "price": 40000,
+    "available": true
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "description": "Jack Daniels hony, ron blanco, miel de gengibre, especieas, zumo de naranja y zumo de miel",
+    "category": "Cocteles",
+    "price": 35000,
+    "available": true
+  },
+  {
+    "id": "1989",
+    "name": "1989",
+    "description": "Ginebra, vodka, arandanos y zumo de limón.",
+    "category": "Cocteles",
+    "price": 30000,
+    "available": true
+  },
+  {
+    "id": "ulva",
+    "name": "Ulva",
+    "description": "Jager meister, licor de cereza y zumo de limón.",
+    "category": "Cocteles",
+    "price": 30000,
+    "available": true
+  },
+  {
+    "id": "cocteles-clasicos",
+    "name": "Cocteles clasicos",
+    "description": "Gin tonic, mojito, margarita, daiquiri, cuba libre, piña colada, tequila sonrise, sex on the beach, martini.",
+    "category": "Cocteles",
+    "price": 25000,
+    "available": true
+  },
+  {
+    "id": "cafe-y-chantilly",
+    "name": "Café y chantilly",
+    "description": "",
+    "category": "Frappés",
+    "price": 12000,
+    "available": true
+  },
+  {
+    "id": "caramelo",
+    "name": "Caramelo",
+    "description": "",
+    "category": "Frappés",
+    "price": 15000,
+    "available": true
+  },
+  {
+    "id": "milo",
+    "name": "Milo",
+    "description": "",
+    "category": "Frappés",
+    "price": 15000,
+    "available": true
+  },
+  {
+    "id": "oreo",
+    "name": "Oreo",
+    "description": "",
+    "category": "Frappés",
+    "price": 15000,
+    "available": true
+  },
+  {
+    "id": "brownie",
+    "name": "Brownie",
+    "description": "",
+    "category": "Frappés",
+    "price": 18000,
+    "available": true
+  },
+  {
+    "id": "aguila",
+    "name": "Aguila",
+    "description": "",
+    "category": "Cervezas",
+    "price": 5000,
+    "available": true
+  },
+  {
+    "id": "poker",
+    "name": "Poker",
+    "description": "",
+    "category": "Cervezas",
+    "price": 5000,
+    "available": true
+  },
+  {
+    "id": "aguila-light",
+    "name": "Aguila light",
+    "description": "",
+    "category": "Cervezas",
+    "price": 5000,
+    "available": true
+  },
+  {
+    "id": "coronita",
+    "name": "Coronita",
+    "description": "",
+    "category": "Cervezas",
+    "price": 6000,
+    "available": true
+  },
+  {
+    "id": "club-colombia",
+    "name": "Club Colombia",
+    "description": "",
+    "category": "Cervezas",
+    "price": 6000,
+    "available": true
+  },
+  {
+    "id": "heineken",
+    "name": "Heineken",
+    "description": "",
+    "category": "Cervezas",
+    "price": 6000,
+    "available": true
+  },
+  {
+    "id": "3-cordilleras",
+    "name": "3 cordilleras",
+    "description": "",
+    "category": "Cervezas",
+    "price": 10000,
+    "available": true
+  },
+  {
+    "id": "stella-artois",
+    "name": "Stella artois",
+    "description": "",
+    "category": "Cervezas",
+    "price": 10000,
+    "available": true
+  },
+  {
+    "id": "smirnoff-ice",
+    "name": "Smirnoff ice",
+    "description": "",
+    "category": "Cervezas",
+    "price": 12000,
+    "available": true
+  },
+  {
+    "id": "aguardiente-amarillo-750",
+    "name": "Aguardiente amarillo 750",
+    "description": "",
+    "category": "Tragos",
+    "price": 100000,
+    "available": true
+  },
+  {
+    "id": "aguardiente-amarillo-375",
+    "name": "Aguardiente amarillo 375",
+    "description": "",
+    "category": "Tragos",
+    "price": 60000,
+    "available": true
+  },
+  {
+    "id": "aguardiente-antioqueno-750",
+    "name": "Aguardiente antioqueño 750",
+    "description": "",
+    "category": "Tragos",
+    "price": 100000,
+    "available": true
+  },
+  {
+    "id": "aguardiente-antioqueno-375",
+    "name": "Aguardiente antioqueño 375",
+    "description": "",
+    "category": "Tragos",
+    "price": 60000,
+    "available": true
+  },
+  {
+    "id": "ron-viejo-caldas-750",
+    "name": "Ron viejo caldas 750",
+    "description": "",
+    "category": "Tragos",
+    "price": 110000,
+    "available": true
+  },
+  {
+    "id": "ron-viejo-caldas-375",
+    "name": "Ron viejo caldas 375",
+    "description": "",
+    "category": "Tragos",
+    "price": 65000,
+    "available": true
+  },
+  {
+    "id": "ron-v-de-caldas-750-8-anos",
+    "name": "Ron V. de caldas 750 8 años",
+    "description": "",
+    "category": "Tragos",
+    "price": 150000,
+    "available": true
+  },
+  {
+    "id": "buchanans-deluxe-750",
+    "name": "Buchanans deluxe 750",
+    "description": "",
+    "category": "Tragos",
+    "price": 230000,
+    "available": true
+  },
+  {
+    "id": "buchanans-deluxe-375",
+    "name": "Buchanans deluxe 375",
+    "description": "",
+    "category": "Tragos",
+    "price": 150000,
+    "available": true
+  },
+  {
+    "id": "buchanans-master",
+    "name": "Buchanans Master",
+    "description": "",
+    "category": "Tragos",
+    "price": 270000,
+    "available": true
+  },
+  {
+    "id": "bretana",
+    "name": "Bretaña",
+    "description": "",
+    "category": "Otros",
+    "price": 5000,
+    "available": true
+  },
+  {
+    "id": "canada-dry",
+    "name": "Canada dry",
+    "description": "",
+    "category": "Otros",
+    "price": 5000,
+    "available": true
+  },
+  {
+    "id": "coca-cola-pet-400",
+    "name": "Coca cola pet 400",
+    "description": "",
+    "category": "Otros",
+    "price": 5000,
+    "available": true
+  },
+  {
+    "id": "soda-hatsu",
+    "name": "Soda hatsu",
+    "description": "",
+    "category": "Otros",
+    "price": 7000,
+    "available": true
+  },
+  {
+    "id": "gatorade",
+    "name": "Gatorade",
+    "description": "",
+    "category": "Otros",
+    "price": 6000,
+    "available": true
+  },
+  {
+    "id": "electrolit",
+    "name": "Electrolit",
+    "description": "",
+    "category": "Otros",
+    "price": 14000,
+    "available": true
+  },
+  {
+    "id": "quates",
+    "name": "Quates",
+    "description": "",
+    "category": "Otros",
+    "price": 6000,
+    "available": true
+  },
+  {
+    "id": "coca-cola-1-5",
+    "name": "Coca cola 1.5",
+    "description": "",
+    "category": "Otros",
+    "price": 12000,
+    "available": true
+  },
+  {
+    "id": "flautas-de-la-casa",
+    "name": "Flautas de la casa",
+    "description": "(Cada una)",
+    "category": "Entradas",
+    "price": 4000,
+    "available": true
+  },
+  {
+    "id": "porcion-de-papas-a-la-francesa",
+    "name": "Porcion de papas a la francesa",
+    "description": "",
+    "category": "Entradas",
+    "price": 9000,
+    "available": true
+  },
+  {
+    "id": "empanaditas-x6-unidades",
+    "name": "Empanaditas x6 unidades",
+    "description": "",
+    "category": "Entradas",
+    "price": 12000,
+    "available": true
+  },
+  {
+    "id": "deditos-de-queso-x6-unidades",
+    "name": "Deditos de queso X6 unidades",
+    "description": "",
+    "category": "Entradas",
+    "price": 12000,
+    "available": true
+  },
+  {
+    "id": "porcion-de-papas-con-queso",
+    "name": "Porcion de papas con queso",
+    "description": "",
+    "category": "Entradas",
+    "price": 15000,
+    "available": true
+  },
+  {
+    "id": "chorizo-montelobos",
+    "name": "Chorizo montelobos",
+    "description": "(Chorizos acaramelados en salsa de Jack Daniels acompañados de croquetas de yuca)",
+    "category": "Entradas",
+    "price": 15000,
+    "available": true
+  },
+  {
+    "id": "hamburguesa-montelobos",
+    "name": "Hamburguesa MonteLobos",
+    "description": "Carne artesanal, queso, lechuga, tomate y salsa de la casa, servida con papas fritas.",
+    "category": "Comidas de la casa",
+    "price": 30000,
+    "available": true
+  },
+  {
+    "id": "sandwinch-de-pollo",
+    "name": "Sandwinch de pollo",
+    "description": "Pechuga desmechada en salsa tartara, queso, jamón ahumado,mermelada de tocineta, vegetales y papa a la francesa.",
+    "category": "Comidas de la casa",
+    "price": 25000,
+    "available": true
+  },
+  {
+    "id": "sandwinch-de-costilla-de-cerdo",
+    "name": "Sandwinch de costilla de cerdo",
+    "description": "Costillas de cerdo desmechada en salsa de la casa, queso, jamón ahumado, mermelada de tocineta, pepinillos, vegetales y papa a la francesa.",
+    "category": "Comidas de la casa",
+    "price": 28000,
+    "available": true
+  },
+  {
+    "id": "papas-de-la-casa",
+    "name": "Papas de la casa",
+    "description": "Papas a la francesa, pollo desmechado en salsa tartara, queso fundido y mermelada de tocineta.",
+    "category": "Comidas de la casa",
+    "price": 25000,
+    "available": true
+  },
+  {
+    "id": "alitas-bocadillo",
+    "name": "Alitas bocadillo",
+    "description": "10 piezas de alitas en reduccción de cerveza y bocadillo acompañadas de papas a la francesa. (picantes)",
+    "category": "Comidas de la casa",
+    "price": 30000,
+    "available": true
+  },
+  {
+    "id": "costillas-de-cerdo",
+    "name": "Costillas de cerdo",
+    "description": "Costillas de cerdo en salsa barbacoa acompañadas de papa a la francesa.",
+    "category": "Comidas de la casa",
+    "price": 35000,
+    "available": true
+  },
+  {
+    "id": "picadilla-montelobos",
+    "name": "Picadilla montelobos",
+    "description": "Panceta de cerdo en trozos, chorizo, longaniza, papas a la francesa, croquetas de yuca. (Para 2 personas)",
+    "category": "Comidas de la casa",
+    "price": 45000,
+    "available": true
+  }
+]

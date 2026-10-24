@@ -1,0 +1,31 @@
+<section class="menu" data-header-theme="dark">
+    <h2>MENÚ</h2>
+    <div class="menu-tar">
+        <% const beverageCategories = ['Micheladas', 'Cocteles', 'Frappés', 'Cervezas', 'Tragos', 'Otros']; %>
+        <% const menuGroups = [
+            { name: 'Bebidas', categories: beverageCategories },
+            { name: 'Comidas', categories: ['Entradas', 'Comidas de la casa'] }
+        ]; %>
+        <% menuGroups.forEach((group) => { %>
+            <details class="tarjeta">
+                <summary><%= group.name %></summary>
+                <% group.categories.forEach((category) => { %>
+                    <details class="menu-subsection">
+                        <summary><%= category %></summary>
+                        <div class="menu-list <%= group.name === 'Bebidas' ? 'bebida-list' : '' %>">
+                            <% products.filter((product) => product.category === category).forEach((product) => { %>
+                                <div class="menu-item <%= group.name === 'Bebidas' ? 'bebida-item' : '' %>" data-product-id="<%= product.id %>">
+                                    <div class="menu-item-info">
+                                        <h3><%= product.name %></h3>
+                                        <% if (product.description) { %><p><%= product.description %></p><% } %>
+                                    </div>
+                                    <strong class="precio">$<%= product.price.toLocaleString('es-CO') %></strong>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </details>
+                <% }); %>
+            </details>
+        <% }); %>
+    </div>
+</section>

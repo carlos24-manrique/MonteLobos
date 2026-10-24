@@ -197,6 +197,290 @@ body {
     margin: 0 0 1rem;
 }
 
+.auth-admin-link {
+    color: var(--blue);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.auth-purchases-summary {
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 1rem 0;
+}
+
+.auth-purchases-summary div {
+    background: rgba(120, 174, 181, 0.12);
+    border: 1px solid rgba(120, 174, 181, 0.3);
+    border-radius: 8px;
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.75rem;
+}
+
+.auth-purchases-summary strong {
+    color: var(--blue);
+    font-size: 1.1rem;
+}
+
+.auth-purchases-summary span {
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+.auth-saved-cart {
+    border: 1px solid rgba(120, 174, 181, 0.35);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+}
+
+.auth-saved-cart p {
+    margin: 0 0 0.65rem;
+}
+
+.auth-open-cart {
+    background: var(--blue);
+    border: 0;
+    border-radius: 6px;
+    color: #102329;
+    cursor: pointer;
+    padding: 0.55rem 0.8rem;
+}
+
+.auth-orders-list {
+    display: grid;
+    gap: 0.65rem;
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+}
+
+.auth-orders-list li {
+    border-bottom: 1px solid rgba(180, 195, 197, 0.2);
+    color: var(--ink);
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-bottom: 0.65rem;
+}
+
+.admin-page {
+    background: #0b171c;
+    color: #e4ecec;
+    min-height: 100vh;
+}
+
+.admin-shell {
+    margin: 0 auto;
+    max-width: 1320px;
+    padding: 2.5rem clamp(1rem, 4vw, 3rem) 5rem;
+}
+
+.admin-heading,
+.admin-toolbar {
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.admin-heading {
+    background: linear-gradient(135deg, #172a32, #223941);
+    border: 1px solid rgba(120, 174, 181, 0.25);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.admin-heading .eyebrow {
+    color: #f0bd72;
+    letter-spacing: 0.18em;
+    margin: 0 0 0.6rem;
+    text-transform: uppercase;
+}
+
+.admin-heading h1 {
+    color: #f5fbfb;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin: 0;
+}
+
+.admin-heading p:not(.eyebrow) {
+    color: #b4c3c5;
+}
+
+.admin-heading .button {
+    background: #78aeb5;
+    border-radius: 999px;
+    color: #102329;
+    font-weight: 700;
+    padding: 0.8rem 1.1rem;
+    text-decoration: none;
+}
+
+.admin-tabs {
+    border-bottom: 1px solid rgba(120, 174, 181, 0.22);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 2rem 0 0;
+    padding-bottom: 0.6rem;
+}
+
+.admin-tabs button,
+.admin-toolbar button,
+.admin-form button,
+.admin-table button {
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    color: #b4c3c5;
+    cursor: pointer;
+    font: inherit;
+    padding: 0.75rem 1rem;
+}
+
+.admin-tabs button:hover,
+.admin-tabs button:focus-visible,
+.admin-toolbar button:hover,
+.admin-form button:hover,
+.admin-table button:hover {
+    background: rgba(120, 174, 181, 0.16);
+    color: #f5fbfb;
+}
+
+.admin-tabs button:first-child {
+    background: rgba(120, 174, 181, 0.2);
+    color: #f5fbfb;
+}
+
+.admin-content {
+    background: #12242b;
+    border: 1px solid rgba(120, 174, 181, 0.2);
+    border-radius: 16px;
+    margin-top: 1.5rem;
+    overflow: hidden;
+    padding: clamp(1rem, 3vw, 1.75rem);
+}
+
+.admin-toolbar h2 {
+    color: #f5fbfb;
+    font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
+}
+
+.admin-toolbar button,
+.admin-form button {
+    background: #78aeb5;
+    color: #102329;
+    font-weight: 700;
+}
+
+.admin-overview {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1.4rem 0;
+}
+
+.admin-overview div {
+    background: #172f38;
+    border: 1px solid rgba(120, 174, 181, 0.22);
+    border-radius: 10px;
+    display: grid;
+    gap: 0.25rem;
+    min-width: 130px;
+    padding: 0.8rem 1rem;
+}
+
+.admin-overview span {
+    color: #8fa7aa;
+    font-size: 0.78rem;
+}
+
+.admin-overview strong {
+    color: #f0bd72;
+    font-size: 1.25rem;
+}
+
+.admin-form {
+    background: #172f38;
+    border: 1px solid rgba(120, 174, 181, 0.22);
+    border-radius: 10px;
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin: 1rem 0 1.5rem;
+    padding: 1rem;
+}
+
+.admin-form input:not([type="checkbox"]),
+.admin-form button {
+    font: inherit;
+    min-height: 2.4rem;
+    padding: 0.5rem;
+}
+
+.admin-form input:not([type="checkbox"]) {
+    background: #0d1d23;
+    border: 1px solid rgba(120, 174, 181, 0.35);
+    border-radius: 6px;
+    color: #f5fbfb;
+}
+
+.admin-form label {
+    align-items: center;
+    color: #b4c3c5;
+    display: flex;
+    gap: 0.4rem;
+}
+
+.admin-table-wrap {
+    overflow-x: auto;
+}
+
+.admin-table,
+.admin-content table {
+    border-collapse: collapse;
+    min-width: 760px;
+    width: 100%;
+}
+
+.admin-content th,
+.admin-content td {
+    border-bottom: 1px solid rgba(120, 174, 181, 0.16);
+    padding: 0.7rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.admin-content th {
+    color: #78aeb5;
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.admin-content td {
+    color: #d9e6e6;
+    font-size: 0.9rem;
+}
+
+.admin-table button {
+    margin: 0.2rem;
+    padding: 0.45rem 0.65rem;
+}
+
+.admin-feedback {
+    color: #78aeb5;
+    min-height: 1.4rem;
+}
+
+.admin-feedback.is-error {
+    color: #ff9b8e;
+}
+
 .dialog-heading {
     align-items: center;
     display: flex;
@@ -525,6 +809,11 @@ h2 {
     text-align: left;
 }
 
+.menu-list {
+    display: grid;
+    gap: 1rem;
+}
+
 .menu-item .menu-item-info {
     flex: 1 1 60%;
     min-width: 0;
@@ -822,6 +1111,64 @@ footer a:hover {
         padding: 7rem 1.25rem 4rem;
     }
 
+    /* Keep the public page aligned with the administration dashboard. */
+    body:not(.admin-page) {
+        background: #0b171c;
+    }
+
+    body:not(.admin-page) .site-header {
+        background: rgba(18, 36, 43, 0.94);
+        border-color: rgba(120, 174, 181, 0.28);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    body:not(.admin-page) .hero {
+        background-image:
+            linear-gradient(90deg, rgba(11, 23, 28, 0.98) 0%, rgba(11, 23, 28, 0.82) 42%, rgba(11, 23, 28, 0.28) 100%),
+            url('../images/logo-montelobos-v1.png');
+    }
+
+    body:not(.admin-page) .hero-content {
+        background: rgba(18, 36, 43, 0.5);
+        border: 1px solid rgba(120, 174, 181, 0.2);
+        border-radius: 18px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+        padding: clamp(1.25rem, 4vw, 2rem);
+        text-shadow: none;
+    }
+
+    body:not(.admin-page) .info-section,
+    body:not(.admin-page) .menu,
+    body:not(.admin-page) .reservation {
+        background: #12242b;
+        border-top: 1px solid rgba(120, 174, 181, 0.16);
+    }
+
+    body:not(.admin-page) .info-gallery,
+    body:not(.admin-page) .reservation-form {
+        background: #172f38;
+        border: 1px solid rgba(120, 174, 181, 0.22);
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        padding: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    body:not(.admin-page) .tarjeta {
+        background: #172f38;
+        border-color: rgba(120, 174, 181, 0.22);
+        border-radius: 14px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+
+    body:not(.admin-page) .tarjeta:hover {
+        background: #1b3943;
+    }
+
+    body:not(.admin-page) footer {
+        background: #0b171c;
+        border-top: 1px solid rgba(120, 174, 181, 0.16);
+    }
+
     .menu-item {
         gap: 0.65rem;
     }
@@ -829,6 +1176,123 @@ footer a:hover {
     @media (max-width: 360px) {
         .hero h1 {
             font-size: 2.25rem;
+        }
+
+        /* Public site dashboard theme */
+        body:not(.admin-page) {
+            background: #0b171c;
+            color: #e4ecec;
+        }
+
+        body:not(.admin-page) .site-header {
+            background: rgba(18, 36, 43, 0.94);
+            border-color: rgba(120, 174, 181, 0.28);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+        }
+
+        body:not(.admin-page) .site-header.is-dark {
+            background: rgba(18, 36, 43, 0.97);
+        }
+
+        body:not(.admin-page) .hero {
+            background-image:
+                linear-gradient(90deg, rgba(11, 23, 28, 0.98) 0%, rgba(11, 23, 28, 0.82) 42%, rgba(11, 23, 28, 0.28) 100%),
+                url('../images/logo-montelobos-v1.png');
+            min-height: 720px;
+        }
+
+        body:not(.admin-page) .hero-content {
+            background: rgba(18, 36, 43, 0.5);
+            border: 1px solid rgba(120, 174, 181, 0.2);
+            border-radius: 18px;
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+            padding: clamp(1.25rem, 4vw, 2rem);
+            text-shadow: none;
+        }
+
+        body:not(.admin-page) .info-section,
+        body:not(.admin-page) .menu,
+        body:not(.admin-page) .reservation {
+            background: #12242b;
+            border-top: 1px solid rgba(120, 174, 181, 0.16);
+        }
+
+        body:not(.admin-page) .info-section {
+            padding-top: clamp(3rem, 7vw, 5rem);
+        }
+
+        body:not(.admin-page) .info-section > h2,
+        body:not(.admin-page) .menu > h2,
+        body:not(.admin-page) .reservation h2 {
+            color: #f5fbfb;
+        }
+
+        body:not(.admin-page) .info-gallery {
+            background: #172f38;
+            border: 1px solid rgba(120, 174, 181, 0.2);
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            padding: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        body:not(.admin-page) .menu {
+            padding-top: clamp(3rem, 7vw, 5rem);
+        }
+
+        body:not(.admin-page) .menu-tar {
+            width: min(100%, 920px);
+        }
+
+        body:not(.admin-page) .tarjeta {
+            background: #172f38;
+            border-color: rgba(120, 174, 181, 0.22);
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        body:not(.admin-page) .tarjeta:hover {
+            background: #1b3943;
+        }
+
+        body:not(.admin-page) .menu-subsection {
+            border-color: rgba(120, 174, 181, 0.18);
+        }
+
+        body:not(.admin-page) .reservation {
+            background: #0f2027;
+        }
+
+        body:not(.admin-page) .reservation-form {
+            background: #172f38;
+            border: 1px solid rgba(120, 174, 181, 0.22);
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            padding: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        body:not(.admin-page) footer {
+            background: #0b171c;
+            border-top: 1px solid rgba(120, 174, 181, 0.16);
+        }
+
+        @media (max-width: 700px) {
+            body:not(.admin-page) .site-header {
+                left: 1rem;
+                margin: 0;
+                max-width: calc(100% - 2rem);
+                padding: 0.5rem 0.7rem;
+                transform: none;
+                width: calc(100% - 2rem);
+            }
+
+            body:not(.admin-page) .hero {
+                min-height: 680px;
+                padding: 7rem 1.25rem 3rem;
+            }
+
+            body:not(.admin-page) .hero-content {
+                padding: 1rem;
+            }
         }
     }
 
@@ -901,4 +1365,96 @@ footer a:hover {
         margin: 1rem auto 0;
     }
 
+}
+
+body:not(.admin-page) {
+    background: #0b171c;
+}
+
+body:not(.admin-page) .site-header {
+    background: rgba(18, 36, 43, 0.94);
+    border-color: rgba(120, 174, 181, 0.28);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+}
+
+body:not(.admin-page) .hero {
+    background-image:
+        linear-gradient(90deg, rgba(11, 23, 28, 0.98) 0%, rgba(11, 23, 28, 0.82) 42%, rgba(11, 23, 28, 0.28) 100%),
+        url('../images/logo-montelobos-v1.png');
+}
+
+body:not(.admin-page) .hero-content {
+    background: rgba(18, 36, 43, 0.5);
+    border: 1px solid rgba(120, 174, 181, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+    padding: clamp(1.25rem, 4vw, 2rem);
+    text-shadow: none;
+}
+
+body:not(.admin-page) .info-section,
+body:not(.admin-page) .menu,
+body:not(.admin-page) .reservation {
+    background: #12242b;
+    border-top: 1px solid rgba(120, 174, 181, 0.16);
+}
+
+body:not(.admin-page) .info-gallery,
+body:not(.admin-page) .reservation-form {
+    background: #172f38;
+    border: 1px solid rgba(120, 174, 181, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+body:not(.admin-page) .tarjeta {
+    background: #172f38;
+    border-color: rgba(120, 174, 181, 0.22);
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+body:not(.admin-page) .tarjeta:hover {
+    background: #1b3943;
+}
+
+body:not(.admin-page) footer {
+    background: #0b171c;
+    border-top: 1px solid rgba(120, 174, 181, 0.16);
+}
+
+@media (min-width: 561px) {
+    body:not(.admin-page) .hero {
+        min-height: 680px;
+        padding: 8rem clamp(2rem, 8vw, 8rem) 4rem;
+    }
+
+    body:not(.admin-page) .hero-content {
+        max-width: 760px;
+        padding: clamp(1.75rem, 4vw, 3rem);
+    }
+
+    body:not(.admin-page) .hero-logo {
+        margin-bottom: 1.5rem;
+        max-width: 270px;
+    }
+
+    body:not(.admin-page) .hero h1 {
+        color: #f5fbfb;
+        font-size: clamp(2.7rem, 5vw, 4.6rem);
+        line-height: 1.05;
+        max-width: 650px;
+    }
+
+    body:not(.admin-page) .hero .eyebrow {
+        color: #f0bd72;
+    }
+
+    body:not(.admin-page) .hero-text {
+        color: #b4c3c5;
+        font-size: 1rem;
+        line-height: 1.65;
+        max-width: 560px;
+    }
 }

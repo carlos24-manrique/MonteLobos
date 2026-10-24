@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="admin-page">
+    <main class="admin-shell">
+        <header class="admin-heading">
+            <div>
+                <p class="eyebrow">MonteLobos</p>
+                <h1>Panel de administración</h1>
+                <p>Sesión activa: <strong><%= account.email %></strong></p>
+            </div>
+            <a class="button" href="/">Volver al sitio</a>
+        </header>
+        <p class="admin-feedback" role="status"></p>
+        <nav class="admin-tabs" aria-label="Módulos administrativos">
+            <button data-resource="products">Productos</button>
+            <button data-resource="orders">Pedidos</button>
+            <button data-resource="users">Usuarios</button>
+            <button data-resource="reservations">Reservas</button>
+        </nav>
+        <section class="admin-content">
+            <div class="admin-toolbar">
+                <h2 id="admin-resource-title">Productos</h2>
+                <button id="admin-add" type="button">Nuevo producto</button>
+            </div>
+            <div class="admin-overview" aria-label="Resumen del módulo">
+                <div><span>Registros</span><strong id="admin-record-count">0</strong></div>
+                <div><span>Estado</span><strong>En línea</strong></div>
+            </div>
+            <form id="product-form" class="admin-form" hidden>
+                <input name="id" placeholder="id-producto" required>
+                <input name="name" placeholder="Nombre" required>
+                <input name="category" placeholder="Categoría" required>
+                <input name="price" type="number" min="1" placeholder="Precio" required>
+                <input name="description" placeholder="Descripción">
+                <label><input name="available" type="checkbox" checked> Disponible</label>
+                <button type="submit">Guardar producto</button>
+            </form>
+            <div class="admin-table-wrap"><table><thead></thead><tbody></tbody></table></div>
+        </section>
+    </main>
+    <script src="/js/admin.js" defer></script>
+</body>
+</html>

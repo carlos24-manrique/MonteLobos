@@ -5,6 +5,7 @@ const cartCountElement = document.querySelector('.cart-count');
 const cartEmptyElement = document.querySelector('.cart-empty');
 const cartTotalElement = document.querySelector('.cart-total');
 const checkoutButton = document.querySelector('.cart-checkout');
+let currentUser = null;
 let cart = loadCart();
 
 function loadCart() {
@@ -36,6 +37,53 @@ function saveCart() {
     }
 }
 
+async function persistProfileCart() {
+    if (!currentUser) return;
+    const response = await fetch('/api/cart', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: cart })
+    });
+    if (!response.ok) {
+        throw new Error('No se pudo guardar el carrito en tu perfil.');
+    }
+}
+
+function mergeItems(savedItems) {
+    const merged = [...savedItems];
+    cart.forEach((localItem) => {
+        const existing = merged.find((item) => item.id === localItem.id);
+        if (existing) {
+            existing.quantity += localItem.quantity;
+        } else {
+            merged.push({ ...localItem });
+        }
+    });
+    cart = merged;
+    saveCart();
+}
+
+async function loadProfileCart() {
+    if (!currentUser) return;
+    const response = await fetch('/api/cart');
+    if (!response.ok) throw new Error('No se pudo cargar el carrito del perfil.');
+    const { items } = await response.json();
+    mergeItems(Array.isArray(items) ? items : []);
+    await persistProfileCart();
+    updateCart();
+}
+
+function clearCart() {
+    cart = [];
+    try {
+        localStorage.removeItem(cartStorageKey);
+    } catch {
+        // The cart remains cleared for the current page when storage is unavailable.
+    }
+    updateCart();
+    persistProfileCart().catch((error) => console.error(error.message));
+}
+
 function createCartButton(label, accessibleLabel, onClick) {
     const button = document.createElement('button');
     button.type = 'button';
@@ -55,6 +103,7 @@ function changeQuantity(id, change) {
     }
     saveCart();
     updateCart();
+    persistProfileCart().catch((error) => console.error(error.message));
 }
 
 function updateCart() {
@@ -64,6 +113,9 @@ function updateCart() {
     cartEmptyElement.hidden = cart.length > 0;
     checkoutButton.disabled = cart.length === 0;
     cartTotalElement.textContent = formatPrice(total);
+    window.dispatchEvent(new CustomEvent('cart:updated', {
+        detail: { itemCount }
+    }));
     cartItemsElement.replaceChildren();
 
     cart.forEach((item) => {
@@ -92,6 +144,7 @@ function updateCart() {
             cart = cart.filter((cartItem) => cartItem.id !== item.id);
             saveCart();
             updateCart();
+            persistProfileCart().catch((error) => console.error(error.message));
         });
         removeButton.classList.add('cart-remove');
         controls.append(removeButton);
@@ -125,16 +178,54 @@ document.querySelectorAll('.menu .menu-item').forEach((menuItem) => {
 });
 
 document.querySelector('.cart-trigger')?.addEventListener('click', () => cartDialog.showModal());
+window.addEventListener('cart:clear', clearCart);
+window.addEventListener('auth:changed', (event) => {
+    currentUser = event.detail?.user || null;
+    if (currentUser) {
+        loadProfileCart().catch((error) => console.error(error.message));
+    }
+});
 cartDialog?.querySelector('.dialog-close')?.addEventListener('click', () => cartDialog.close());
 cartDialog?.addEventListener('click', (event) => {
     if (event.target === cartDialog) cartDialog.close();
 });
 
-checkoutButton?.addEventListener('click', () => {
+checkoutButton?.addEventListener('click', async () => {
+    if (!currentUser) {
+        sessionStorage.setItem('montelobos-resume-cart', 'true');
+        cartDialog.close();
+        document.querySelector('.auth-trigger')?.click();
+        return;
+    }
+
     const orderLines = cart.map((item) => `${item.quantity} x ${item.name}: ${formatPrice(item.price * item.quantity)}`);
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const message = ['Hola, quiero hacer este pedido:', ...orderLines, `Total: ${formatPrice(total)}`].join('\n');
+    try {
+        const response = await fetch('/api/orders', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ items: cart, total })
+        });
+        if (!response.ok) {
+            const result = await response.json().catch(() => ({}));
+            throw new Error(result.message || 'No se pudo guardar el pedido.');
+        }
+    } catch (error) {
+        window.alert(error.message || 'No se pudo guardar el pedido.');
+        return;
+    }
+    clearCart();
     window.open(`https://wa.me/3132514389?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
 });
+
+window.addEventListener('cart:resume', () => {
+    if (cart.length > 0) cartDialog?.showModal();
+});
+
+fetch('/api/auth/session')
+    .then((response) => response.json())
+    .then(({ user }) => { currentUser = user; })
+    .catch(() => {});
 
 updateCart();

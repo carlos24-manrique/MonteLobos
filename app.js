@@ -1,10 +1,16 @@
+import 'dotenv/config';
 import express from 'express';
 import session from 'express-session';
 import { randomBytes } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import authRoutes from './routes/authRoutes.js';
+import adminApi from './routes/adminRoutes.js';
+import adminPageRoutes from './routes/adminPageRoutes.js';
+import cartRoutes from './routes/cartRoutes.js';
 import mainRoutes from './routes/mainRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import reservationRoutes from './routes/reservationRoutes.js';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +32,11 @@ app.use(session({
     }
 }));
 app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminApi);
+app.use('/api/cart', cartRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/reservations', reservationRoutes);
+app.use(adminPageRoutes);
 app.use(mainRoutes);
 app.use(express.static(join(__dirname, 'public')));
 
