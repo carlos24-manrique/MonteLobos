@@ -1,4 +1,5 @@
 import { requireSupabase } from '../lib/supabase.js';
+import { positiveInteger, text } from '../lib/validation.js';
 
 function getUserId(req, res) {
     if (!req.session.user) {
@@ -9,11 +10,12 @@ function getUserId(req, res) {
 }
 
 function validItems(items) {
-    return Array.isArray(items) && items.every((item) => item
-        && typeof item.id === 'string'
-        && typeof item.name === 'string'
-        && Number.isSafeInteger(item.price) && item.price > 0
-        && Number.isSafeInteger(item.quantity) && item.quantity > 0);
+    return Array.isArray(items) && items.length <= 100 && items.every((item) => item
+        && text(item.id, { max: 120 })
+        && text(item.name, { max: 160 })
+        && positiveInteger(item.price)
+        && positiveInteger(item.quantity)
+        && item.quantity <= 99);
 }
 
 export async function getCart(req, res) {

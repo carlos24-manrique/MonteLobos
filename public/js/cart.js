@@ -1,4 +1,4 @@
-const cartStorageKey = 'montelobos-cart-v1';
+const cartStorageKey = 'montelobos-cart-v2';
 const cartDialog = document.querySelector('#cart-dialog');
 const cartItemsElement = document.querySelector('.cart-items');
 const cartCountElement = document.querySelector('.cart-count');
@@ -6,6 +6,7 @@ const cartEmptyElement = document.querySelector('.cart-empty');
 const cartTotalElement = document.querySelector('.cart-total');
 const checkoutButton = document.querySelector('.cart-checkout');
 let currentUser = null;
+let loadedProfileUserId = null;
 let cart = loadCart();
 
 function loadCart() {
@@ -49,9 +50,9 @@ async function persistProfileCart() {
     }
 }
 
-function mergeItems(savedItems) {
+function mergeItems(savedItems, visitorItems) {
     const merged = [...savedItems];
-    cart.forEach((localItem) => {
+    visitorItems.forEach((localItem) => {
         const existing = merged.find((item) => item.id === localItem.id);
         if (existing) {
             existing.quantity += localItem.quantity;
@@ -64,13 +65,19 @@ function mergeItems(savedItems) {
 }
 
 async function loadProfileCart() {
-    if (!currentUser) return;
+    if (!currentUser || loadedProfileUserId === currentUser.id) return;
+    const visitorItems = [...cart];
     const response = await fetch('/api/cart');
     if (!response.ok) throw new Error('No se pudo cargar el carrito del perfil.');
     const { items } = await response.json();
-    mergeItems(Array.isArray(items) ? items : []);
+    mergeItems(Array.isArray(items) ? items : [], visitorItems);
+    loadedProfileUserId = currentUser.id;
     await persistProfileCart();
     updateCart();
+    if (sessionStorage.getItem('montelobos-resume-cart') === 'true') {
+        sessionStorage.removeItem('montelobos-resume-cart');
+        cartDialog?.showModal();
+    }
 }
 
 function clearCart() {
@@ -164,7 +171,8 @@ document.querySelectorAll('.menu .menu-item').forEach((menuItem) => {
     addButton.textContent = 'Agregar';
     addButton.setAttribute('aria-label', `Agregar ${name} al carrito`);
     addButton.addEventListener('click', () => {
-        const id = `${name.toLocaleLowerCase('es')}-${price}`;
+        const id = menuItem.dataset.productId;
+        if (!id) return;
         const existingItem = cart.find((item) => item.id === id);
         if (existingItem) {
             existingItem.quantity += 1;
@@ -183,6 +191,8 @@ window.addEventListener('auth:changed', (event) => {
     currentUser = event.detail?.user || null;
     if (currentUser) {
         loadProfileCart().catch((error) => console.error(error.message));
+    } else {
+        loadedProfileUserId = null;
     }
 });
 cartDialog?.querySelector('.dialog-close')?.addEventListener('click', () => cartDialog.close());
@@ -198,25 +208,25 @@ checkoutButton?.addEventListener('click', async () => {
         return;
     }
 
-    const orderLines = cart.map((item) => `${item.quantity} x ${item.name}: ${formatPrice(item.price * item.quantity)}`);
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const message = ['Hola, quiero hacer este pedido:', ...orderLines, `Total: ${formatPrice(total)}`].join('\n');
     try {
         const response = await fetch('/api/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ items: cart, total })
+            body: JSON.stringify({ items: cart })
         });
         if (!response.ok) {
             const result = await response.json().catch(() => ({}));
             throw new Error(result.message || 'No se pudo guardar el pedido.');
         }
+        const { order } = await response.json();
+        const orderLines = order.items.map((item) => `${item.quantity} x ${item.name}: ${formatPrice(item.price * item.quantity)}`);
+        const message = ['Hola, quiero hacer este pedido:', ...orderLines, `Total: ${formatPrice(order.total)}`].join('\n');
+        clearCart();
+        window.open(`https://wa.me/3132514389?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     } catch (error) {
         window.alert(error.message || 'No se pudo guardar el pedido.');
         return;
     }
-    clearCart();
-    window.open(`https://wa.me/3132514389?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
 });
 
 window.addEventListener('cart:resume', () => {

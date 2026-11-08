@@ -62,19 +62,19 @@
     <form class="reservation-form" action="#contacto" method="post">
         <div class="form-field">
             <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" autocomplete="given-name" required>
+            <input type="text" id="nombre" name="nombre" autocomplete="given-name" maxlength="80" required>
         </div>
         <div class="form-field">
             <label for="apellido">Apellido</label>
-            <input type="text" id="apellido" name="apellido" autocomplete="family-name" required>
+            <input type="text" id="apellido" name="apellido" autocomplete="family-name" maxlength="80" required>
         </div>
         <div class="form-field">
             <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" required>
+            <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" minlength="7" maxlength="30" required>
         </div>
         <div class="form-field">
             <label for="correo">Correo electrónico</label>
-            <input type="email" id="correo" name="correo" autocomplete="email" required>
+            <input type="email" id="correo" name="correo" autocomplete="email" maxlength="254" required>
         </div>
         <button class="reservation-submit" type="submit">Solicitar reserva</button>
     </form>

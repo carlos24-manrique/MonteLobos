@@ -133,12 +133,7 @@ authForm.addEventListener('submit', async (event) => {
 
         setCurrentAccount(result.user);
         loadOrders();
-        const shouldResumeCart = sessionStorage.getItem('montelobos-resume-cart') === 'true';
-        if (sessionStorage.getItem('montelobos-resume-cart') === 'true') {
-            sessionStorage.removeItem('montelobos-resume-cart');
-        }
         authDialog.close();
-        if (shouldResumeCart) window.dispatchEvent(new Event('cart:resume'));
     } catch (error) {
         showAuthFeedback(error.message || 'No se pudo conectar con el servidor.', true);
     } finally {

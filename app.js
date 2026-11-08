@@ -40,6 +40,19 @@ app.use(adminPageRoutes);
 app.use(mainRoutes);
 app.use(express.static(join(__dirname, 'public')));
 
+app.use((error, req, res, next) => {
+    const status = Number.isInteger(error.status) && error.status >= 400 && error.status < 600
+        ? error.status
+        : 500;
+    if (res.headersSent) return next(error);
+    if (req.path.startsWith('/api/')) {
+        return res.status(status).json({
+            message: status === 500 ? 'Ocurrió un error interno.' : error.message
+        });
+    }
+    return res.status(status).send(status === 500 ? 'Ocurrió un error interno.' : error.message);
+});
+
 app.use((req, res) => {
     res.status(404).send('Página no encontrada');
 });
