@@ -1,0 +1,25 @@
+<section class="menu" data-header-theme="dark">
+    <h2>MENÚ</h2>
+    <div class="menu-tar">
+        <details class="tarjeta">
+            <summary>Bebidas y comidas</summary>
+            <% const categories = [...new Set(products.map((product) => product.category))]; %>
+            <% categories.forEach((category) => { %>
+                <details class="menu-subsection">
+                    <summary><%= category %></summary>
+                    <div class="menu-list">
+                        <% products.filter((product) => product.category === category).forEach((product) => { %>
+                            <div class="menu-item <%= category === 'Micheladas' || category === 'Cocteles' || category === 'Frappés' ? 'bebida-item' : '' %>" data-product-id="<%= product.id %>">
+                                <div class="menu-item-info">
+                                    <h3><%= product.name %></h3>
+                                    <% if (product.description) { %><p><%= product.description %></p><% } %>
+                                </div>
+                                <strong class="precio">$<%= product.price.toLocaleString('es-CO') %></strong>
+                            </div>
+                        <% }); %>
+                    </div>
+                </details>
+            <% }); %>
+        </details>
+    </div>
+</section>
