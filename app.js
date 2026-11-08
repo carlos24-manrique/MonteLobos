@@ -5,6 +5,8 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import authRoutes from './routes/authRoutes.js';
 import mainRoutes from './routes/mainRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
+import reservationRoutes from './routes/reservationRoutes.js';
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +28,8 @@ app.use(session({
     }
 }));
 app.use('/api/auth', authRoutes);
+app.use('/api/orders', orderRoutes);
+app.use('/api/reservations', reservationRoutes);
 app.use(mainRoutes);
 app.use(express.static(join(__dirname, 'public')));
 
