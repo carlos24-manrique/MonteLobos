@@ -33,6 +33,16 @@ app.use('/api/reservations', reservationRoutes);
 app.use(mainRoutes);
 app.use(express.static(join(__dirname, 'public')));
 
+app.use((error, req, res, next) => {
+    if (res.headersSent) return next(error);
+    if (req.path.startsWith('/api/')) {
+        return res.status(error.status || 500).json({
+            message: error.status ? error.message : 'Ocurrió un error interno.'
+        });
+    }
+    return res.status(error.status || 500).send(error.status ? error.message : 'Ocurrió un error interno.');
+});
+
 app.use((req, res) => {
     res.status(404).send('Página no encontrada');
 });

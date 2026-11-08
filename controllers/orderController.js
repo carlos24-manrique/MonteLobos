@@ -1,4 +1,5 @@
 import { requireSupabase } from '../lib/supabase.js';
+import { positiveInteger, text } from '../lib/validation.js';
 
 export async function createOrder(req, res) {
     if (!req.session.user) {
@@ -7,7 +8,13 @@ export async function createOrder(req, res) {
 
     const items = Array.isArray(req.body?.items) ? req.body.items : [];
     const total = Number(req.body?.total);
-    if (!items.length || !Number.isSafeInteger(total) || total < 0) {
+    const validItems = items.length > 0 && items.length <= 100 && items.every((item) => item
+        && text(item.id, { max: 120 })
+        && text(item.name, { max: 160 })
+        && positiveInteger(item.price)
+        && positiveInteger(item.quantity)
+        && item.quantity <= 99);
+    if (!validItems || !Number.isSafeInteger(total) || total < 0) {
         return res.status(400).json({ message: 'El pedido no es válido.' });
     }
 
