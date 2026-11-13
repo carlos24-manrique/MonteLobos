@@ -18,6 +18,11 @@ const authSpentTotal = document.querySelector('.auth-spent-total');
 const authSavedCartCount = document.querySelector('.auth-saved-cart-count');
 const authOpenCart = document.querySelector('.auth-open-cart');
 const authAdminLink = document.querySelector('.auth-admin-link');
+const authAvatarField = document.querySelector('.auth-avatar-field');
+const authAvatarInput = document.querySelector('#auth-avatar');
+const authRememberField = document.querySelector('.auth-remember-field');
+const authRememberInput = document.querySelector('#auth-remember');
+const authAvatarPreview = document.querySelector('.auth-avatar-preview');
 let authMode = 'login';
 let currentAccount = null;
 
@@ -44,6 +49,9 @@ function setAuthMode(mode) {
     authNameField.hidden = !isRegistration;
     authNameInput.disabled = !isRegistration;
     authNameInput.required = isRegistration;
+    authAvatarField.hidden = !isRegistration;
+    authAvatarInput.disabled = !isRegistration;
+    authRememberField.hidden = isRegistration;
     authPasswordInput.autocomplete = isRegistration ? 'new-password' : 'current-password';
     authSubmit.textContent = isRegistration ? 'Crear cuenta' : 'Iniciar sesión';
     authSwitch.textContent = isRegistration ? 'Ya tengo una cuenta' : 'Crear cuenta';
@@ -59,6 +67,8 @@ function setCurrentAccount(account) {
     authTrigger.querySelector('.auth-trigger-label').textContent = account ? 'Mi cuenta' : 'Iniciar sesión';
     authWelcome.textContent = account ? `Hola, ${account.name}` : '';
     authAdminLink.hidden = account?.role !== 'admin';
+    authAvatarPreview.hidden = !account?.avatarUrl;
+    if (account?.avatarUrl) authAvatarPreview.src = account.avatarUrl;
     window.dispatchEvent(new CustomEvent('auth:changed', { detail: { user: account } }));
 }
 
@@ -116,18 +126,48 @@ authForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     authSubmit.disabled = true;
 
-    const payload = {
-        email: authEmailInput.value,
-        password: authPasswordInput.value
-    };
-    if (authMode === 'register') payload.name = authNameInput.value;
+    // Validación en el cliente antes de llamar al servidor.
+    if (authMode === 'register') {
+        const file = authAvatarInput.files[0];
+        if (authNameInput.value.trim().length < 2) {
+            showAuthFeedback('El nombre debe tener al menos 2 caracteres.', true);
+            authSubmit.disabled = false;
+            return;
+        }
+        if (file && (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 2 * 1024 * 1024)) {
+            showAuthFeedback('La foto debe ser JPG, PNG o WEBP de máximo 2 MB.', true);
+            authSubmit.disabled = false;
+            return;
+        }
+        if (!/[A-Za-z]/.test(authPasswordInput.value) || !/\d/.test(authPasswordInput.value)) {
+            showAuthFeedback('La contraseña debe incluir al menos una letra y un número.', true);
+            authSubmit.disabled = false;
+            return;
+        }
+    }
 
     try {
-        const response = await fetch(`/api/auth/${authMode}`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
+        let options;
+        if (authMode === 'register') {
+            // Registro: multipart/form-data para poder enviar la imagen (Multer).
+            const formData = new FormData();
+            formData.append('name', authNameInput.value);
+            formData.append('email', authEmailInput.value);
+            formData.append('password', authPasswordInput.value);
+            if (authAvatarInput.files[0]) formData.append('avatar', authAvatarInput.files[0]);
+            options = { method: 'POST', body: formData };
+        } else {
+            options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: authEmailInput.value,
+                    password: authPasswordInput.value,
+                    remember: authRememberInput.checked
+                })
+            };
+        }
+        const response = await fetch(`/api/auth/${authMode}`, options);
         const result = await response.json();
         if (!response.ok) throw new Error(result.message || 'No se pudo iniciar sesión.');
 

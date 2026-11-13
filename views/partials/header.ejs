@@ -61,10 +61,18 @@
                 Contraseña
                 <input id="auth-password" name="password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required>
             </label>
+            <label class="auth-avatar-field" for="auth-avatar" hidden>
+                Foto de perfil (opcional, JPG/PNG/WEBP, máx. 2 MB)
+                <input id="auth-avatar" name="avatar" type="file" accept="image/jpeg,image/png,image/webp" disabled>
+            </label>
+            <label class="auth-remember-field" for="auth-remember">
+                <input id="auth-remember" name="remember" type="checkbox"> Recordarme en este equipo
+            </label>
             <button class="auth-submit" type="submit">Iniciar sesión</button>
         </form>
         <button class="auth-switch" type="button">Crear cuenta</button>
         <div class="auth-account" hidden>
+            <img class="auth-avatar-preview" alt="Foto de perfil" width="64" height="64" hidden>
             <p class="auth-welcome"></p>
             <a class="auth-admin-link" href="/admin" hidden>Panel de administración</a>
             <div class="auth-orders">

@@ -1,3 +1,5 @@
 node_modules/
 .env
 /data/accounts.json
+public/uploads/avatars/*
+!public/uploads/avatars/.gitkeep

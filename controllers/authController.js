@@ -1,12 +1,18 @@
 import { randomBytes, scrypt, timingSafeEqual } from 'node:crypto';
+import { unlink } from 'node:fs/promises';
 import { promisify } from 'node:util';
 import { requireSupabase } from '../lib/supabase.js';
 
 const scryptAsync = promisify(scrypt);
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function publicAccount(account) {
-    return { id: account.id, name: account.name, email: account.email, role: account.role || 'customer' };
+    return {
+        id: account.id,
+        name: account.name,
+        email: account.email,
+        role: account.role || 'customer',
+        avatarUrl: account.avatar_url || null
+    };
 }
 
 async function startSession(req, account) {
@@ -21,14 +27,9 @@ export function getSession(req, res) {
 }
 
 export async function register(req, res) {
-    const name = typeof req.body?.name === 'string' ? req.body.name.trim() : '';
-    const email = typeof req.body?.email === 'string' ? req.body.email.trim().toLowerCase() : '';
-    const password = typeof req.body?.password === 'string' ? req.body.password : '';
-
-    if (!name || name.length > 80 || !emailPattern.test(email) || email.length > 254
-        || password.length < 8 || password.length > 128) {
-        return res.status(400).json({ message: 'Revisa tu nombre, correo y contraseña (mínimo 8 caracteres).' });
-    }
+    // Los datos ya fueron validados por express-validator (lib/validators.js).
+    const { name, email, password } = req.body;
+    const avatarUrl = req.file ? `/uploads/avatars/${req.file.filename}` : null;
 
     const db = requireSupabase();
     const { data: existing, error: lookupError } = await db
@@ -38,6 +39,7 @@ export async function register(req, res) {
         .maybeSingle();
     if (lookupError) throw lookupError;
     if (existing) {
+        if (req.file) await unlink(req.file.path).catch(() => {});
         return res.status(409).json({ message: 'Ya existe una cuenta con ese correo.' });
     }
 
@@ -48,7 +50,8 @@ export async function register(req, res) {
         name,
         email,
         salt,
-        passwordHash
+        passwordHash,
+        avatar_url: avatarUrl
     };
 
     const { error } = await db.from('users').insert({
@@ -56,20 +59,23 @@ export async function register(req, res) {
         name: account.name,
         email: account.email,
         salt: account.salt,
-        password_hash: account.passwordHash
+        password_hash: account.passwordHash,
+        avatar_url: account.avatar_url
     });
-    if (error) throw error;
+    if (error) {
+        if (req.file) await unlink(req.file.path).catch(() => {});
+        throw error;
+    }
     await startSession(req, account);
     return res.status(201).json({ user: publicAccount(account) });
 }
 
 export async function login(req, res) {
-    const email = typeof req.body?.email === 'string' ? req.body.email.trim().toLowerCase() : '';
-    const password = typeof req.body?.password === 'string' ? req.body.password : '';
+    const { email, password, remember } = req.body;
     const db = requireSupabase();
     const { data: savedAccount, error } = await db
         .from('users')
-        .select('id, name, email, salt, password_hash, role')
+        .select('id, name, email, salt, password_hash, role, avatar_url')
         .eq('email', email)
         .maybeSingle();
     if (error) throw error;
@@ -89,6 +95,8 @@ export async function login(req, res) {
     }
 
     await startSession(req, account);
+    // "Recordarme": la cookie de sesión pasa de 24 horas a 30 días.
+    if (remember) req.session.cookie.maxAge = 30 * 24 * 60 * 60 * 1000;
     return res.json({ user: publicAccount(account) });
 }
 

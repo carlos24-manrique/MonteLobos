@@ -48,3 +48,6 @@ create table if not exists public.orders (
 
 create index if not exists orders_user_id_created_at_idx
     on public.orders (user_id, created_at desc);
+
+alter table public.users
+    add column if not exists avatar_url text;
